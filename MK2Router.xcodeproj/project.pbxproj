@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B147C8501CE49C11000E74D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C84F1CE49C11000E74D2 /* AppDelegate.swift */; };
+		B147C8521CE49C11000E74D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8511CE49C11000E74D2 /* ViewController.swift */; };
+		B147C8551CE49C11000E74D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147C8531CE49C11000E74D2 /* Main.storyboard */; };
+		B147C8571CE49C11000E74D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B147C8561CE49C11000E74D2 /* Assets.xcassets */; };
+		B147C85A1CE49C11000E74D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147C8581CE49C11000E74D2 /* LaunchScreen.storyboard */; };
+		B147C8651CE49C11000E74D2 /* MK2RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8641CE49C11000E74D2 /* MK2RouterTests.swift */; };
+		B147C8701CE49C11000E74D2 /* MK2RouterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C86F1CE49C11000E74D2 /* MK2RouterUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B147C8611CE49C11000E74D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B147C8441CE49C11000E74D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B147C84B1CE49C11000E74D2;
+			remoteInfo = MK2Router;
+		};
+		B147C86C1CE49C11000E74D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B147C8441CE49C11000E74D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B147C84B1CE49C11000E74D2;
+			remoteInfo = MK2Router;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B147C84C1CE49C11000E74D2 /* MK2Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MK2Router.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B147C84F1CE49C11000E74D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B147C8511CE49C11000E74D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B147C8541CE49C11000E74D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B147C8561CE49C11000E74D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B147C8591CE49C11000E74D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B147C85B1CE49C11000E74D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B147C8601CE49C11000E74D2 /* MK2RouterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MK2RouterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B147C8641CE49C11000E74D2 /* MK2RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MK2RouterTests.swift; sourceTree = "<group>"; };
+		B147C8661CE49C11000E74D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B147C86B1CE49C11000E74D2 /* MK2RouterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MK2RouterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B147C86F1CE49C11000E74D2 /* MK2RouterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MK2RouterUITests.swift; sourceTree = "<group>"; };
+		B147C8711CE49C11000E74D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B147C8491CE49C11000E74D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B147C85D1CE49C11000E74D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B147C8681CE49C11000E74D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B147C8431CE49C11000E74D2 = {
+			isa = PBXGroup;
+			children = (
+				B147C84E1CE49C11000E74D2 /* MK2Router */,
+				B147C8631CE49C11000E74D2 /* MK2RouterTests */,
+				B147C86E1CE49C11000E74D2 /* MK2RouterUITests */,
+				B147C84D1CE49C11000E74D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B147C84D1CE49C11000E74D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B147C84C1CE49C11000E74D2 /* MK2Router.app */,
+				B147C8601CE49C11000E74D2 /* MK2RouterTests.xctest */,
+				B147C86B1CE49C11000E74D2 /* MK2RouterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B147C84E1CE49C11000E74D2 /* MK2Router */ = {
+			isa = PBXGroup;
+			children = (
+				B147C84F1CE49C11000E74D2 /* AppDelegate.swift */,
+				B147C8511CE49C11000E74D2 /* ViewController.swift */,
+				B147C8531CE49C11000E74D2 /* Main.storyboard */,
+				B147C8561CE49C11000E74D2 /* Assets.xcassets */,
+				B147C8581CE49C11000E74D2 /* LaunchScreen.storyboard */,
+				B147C85B1CE49C11000E74D2 /* Info.plist */,
+			);
+			path = MK2Router;
+			sourceTree = "<group>";
+		};
+		B147C8631CE49C11000E74D2 /* MK2RouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				B147C8641CE49C11000E74D2 /* MK2RouterTests.swift */,
+				B147C8661CE49C11000E74D2 /* Info.plist */,
+			);
+			path = MK2RouterTests;
+			sourceTree = "<group>";
+		};
+		B147C86E1CE49C11000E74D2 /* MK2RouterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B147C86F1CE49C11000E74D2 /* MK2RouterUITests.swift */,
+				B147C8711CE49C11000E74D2 /* Info.plist */,
+			);
+			path = MK2RouterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B147C84B1CE49C11000E74D2 /* MK2Router */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B147C8741CE49C11000E74D2 /* Build configuration list for PBXNativeTarget "MK2Router" */;
+			buildPhases = (
+				B147C8481CE49C11000E74D2 /* Sources */,
+				B147C8491CE49C11000E74D2 /* Frameworks */,
+				B147C84A1CE49C11000E74D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MK2Router;
+			productName = MK2Router;
+			productReference = B147C84C1CE49C11000E74D2 /* MK2Router.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B147C85F1CE49C11000E74D2 /* MK2RouterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B147C8771CE49C11000E74D2 /* Build configuration list for PBXNativeTarget "MK2RouterTests" */;
+			buildPhases = (
+				B147C85C1CE49C11000E74D2 /* Sources */,
+				B147C85D1CE49C11000E74D2 /* Frameworks */,
+				B147C85E1CE49C11000E74D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B147C8621CE49C11000E74D2 /* PBXTargetDependency */,
+			);
+			name = MK2RouterTests;
+			productName = MK2RouterTests;
+			productReference = B147C8601CE49C11000E74D2 /* MK2RouterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B147C86A1CE49C11000E74D2 /* MK2RouterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B147C87A1CE49C11000E74D2 /* Build configuration list for PBXNativeTarget "MK2RouterUITests" */;
+			buildPhases = (
+				B147C8671CE49C11000E74D2 /* Sources */,
+				B147C8681CE49C11000E74D2 /* Frameworks */,
+				B147C8691CE49C11000E74D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B147C86D1CE49C11000E74D2 /* PBXTargetDependency */,
+			);
+			name = MK2RouterUITests;
+			productName = MK2RouterUITests;
+			productReference = B147C86B1CE49C11000E74D2 /* MK2RouterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B147C8441CE49C11000E74D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Yuichi Kobayashi";
+				TargetAttributes = {
+					B147C84B1CE49C11000E74D2 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					B147C85F1CE49C11000E74D2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = B147C84B1CE49C11000E74D2;
+					};
+					B147C86A1CE49C11000E74D2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = B147C84B1CE49C11000E74D2;
+					};
+				};
+			};
+			buildConfigurationList = B147C8471CE49C11000E74D2 /* Build configuration list for PBXProject "MK2Router" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B147C8431CE49C11000E74D2;
+			productRefGroup = B147C84D1CE49C11000E74D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B147C84B1CE49C11000E74D2 /* MK2Router */,
+				B147C85F1CE49C11000E74D2 /* MK2RouterTests */,
+				B147C86A1CE49C11000E74D2 /* MK2RouterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B147C84A1CE49C11000E74D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B147C85A1CE49C11000E74D2 /* LaunchScreen.storyboard in Resources */,
+				B147C8571CE49C11000E74D2 /* Assets.xcassets in Resources */,
+				B147C8551CE49C11000E74D2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B147C85E1CE49C11000E74D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B147C8691CE49C11000E74D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B147C8481CE49C11000E74D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B147C8521CE49C11000E74D2 /* ViewController.swift in Sources */,
+				B147C8501CE49C11000E74D2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B147C85C1CE49C11000E74D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B147C8651CE49C11000E74D2 /* MK2RouterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B147C8671CE49C11000E74D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B147C8701CE49C11000E74D2 /* MK2RouterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B147C8621CE49C11000E74D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B147C84B1CE49C11000E74D2 /* MK2Router */;
+			targetProxy = B147C8611CE49C11000E74D2 /* PBXContainerItemProxy */;
+		};
+		B147C86D1CE49C11000E74D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B147C84B1CE49C11000E74D2 /* MK2Router */;
+			targetProxy = B147C86C1CE49C11000E74D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B147C8531CE49C11000E74D2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B147C8541CE49C11000E74D2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B147C8581CE49C11000E74D2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B147C8591CE49C11000E74D2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B147C8721CE49C11000E74D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B147C8731CE49C11000E74D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B147C8751CE49C11000E74D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MK2Router/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MK2Router";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B147C8761CE49C11000E74D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MK2Router/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MK2Router";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B147C8781CE49C11000E74D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MK2RouterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MK2RouterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MK2Router.app/MK2Router";
+			};
+			name = Debug;
+		};
+		B147C8791CE49C11000E74D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MK2RouterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MK2RouterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MK2Router.app/MK2Router";
+			};
+			name = Release;
+		};
+		B147C87B1CE49C11000E74D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MK2RouterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MK2RouterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MK2Router;
+			};
+			name = Debug;
+		};
+		B147C87C1CE49C11000E74D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MK2RouterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MK2RouterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MK2Router;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B147C8471CE49C11000E74D2 /* Build configuration list for PBXProject "MK2Router" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B147C8721CE49C11000E74D2 /* Debug */,
+				B147C8731CE49C11000E74D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B147C8741CE49C11000E74D2 /* Build configuration list for PBXNativeTarget "MK2Router" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B147C8751CE49C11000E74D2 /* Debug */,
+				B147C8761CE49C11000E74D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B147C8771CE49C11000E74D2 /* Build configuration list for PBXNativeTarget "MK2RouterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B147C8781CE49C11000E74D2 /* Debug */,
+				B147C8791CE49C11000E74D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B147C87A1CE49C11000E74D2 /* Build configuration list for PBXNativeTarget "MK2RouterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B147C87B1CE49C11000E74D2 /* Debug */,
+				B147C87C1CE49C11000E74D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B147C8441CE49C11000E74D2 /* Project object */;
+}
