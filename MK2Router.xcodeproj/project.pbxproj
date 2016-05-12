@@ -14,6 +14,10 @@
 		B147C85A1CE49C11000E74D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147C8581CE49C11000E74D2 /* LaunchScreen.storyboard */; };
 		B147C8651CE49C11000E74D2 /* MK2RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8641CE49C11000E74D2 /* MK2RouterTests.swift */; };
 		B147C8701CE49C11000E74D2 /* MK2RouterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C86F1CE49C11000E74D2 /* MK2RouterUITests.swift */; };
+		B147C87F1CE49C85000E74D2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C87E1CE49C85000E74D2 /* Router.swift */; };
+		B147C8811CE49C9F000E74D2 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8801CE49C9F000E74D2 /* Destination.swift */; };
+		B147C8831CE49CEC000E74D2 /* SegueAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8821CE49CEC000E74D2 /* SegueAssistant.swift */; };
+		B147C8851CE4A130000E74D2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8841CE4A130000E74D2 /* TextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		B147C86B1CE49C11000E74D2 /* MK2RouterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MK2RouterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B147C86F1CE49C11000E74D2 /* MK2RouterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MK2RouterUITests.swift; sourceTree = "<group>"; };
 		B147C8711CE49C11000E74D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B147C87E1CE49C85000E74D2 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Lib/Router.swift; sourceTree = "<group>"; };
+		B147C8801CE49C9F000E74D2 /* Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Destination.swift; path = Lib/Destination.swift; sourceTree = "<group>"; };
+		B147C8821CE49CEC000E74D2 /* SegueAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegueAssistant.swift; path = Lib/SegueAssistant.swift; sourceTree = "<group>"; };
+		B147C8841CE4A130000E74D2 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,12 @@
 			children = (
 				B147C84F1CE49C11000E74D2 /* AppDelegate.swift */,
 				B147C8511CE49C11000E74D2 /* ViewController.swift */,
+				B147C8841CE4A130000E74D2 /* TextViewController.swift */,
 				B147C8531CE49C11000E74D2 /* Main.storyboard */,
 				B147C8561CE49C11000E74D2 /* Assets.xcassets */,
 				B147C8581CE49C11000E74D2 /* LaunchScreen.storyboard */,
 				B147C85B1CE49C11000E74D2 /* Info.plist */,
+				B147C87D1CE49C42000E74D2 /* Lib */,
 			);
 			path = MK2Router;
 			sourceTree = "<group>";
@@ -123,6 +133,16 @@
 				B147C8711CE49C11000E74D2 /* Info.plist */,
 			);
 			path = MK2RouterUITests;
+			sourceTree = "<group>";
+		};
+		B147C87D1CE49C42000E74D2 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				B147C87E1CE49C85000E74D2 /* Router.swift */,
+				B147C8801CE49C9F000E74D2 /* Destination.swift */,
+				B147C8821CE49CEC000E74D2 /* SegueAssistant.swift */,
+			);
+			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B147C8521CE49C11000E74D2 /* ViewController.swift in Sources */,
+				B147C87F1CE49C85000E74D2 /* Router.swift in Sources */,
+				B147C8811CE49C9F000E74D2 /* Destination.swift in Sources */,
+				B147C8831CE49CEC000E74D2 /* SegueAssistant.swift in Sources */,
 				B147C8501CE49C11000E74D2 /* AppDelegate.swift in Sources */,
+				B147C8851CE4A130000E74D2 /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MK2Router/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.MK2Router";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,6 +438,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MK2Router/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.MK2Router";
 				PRODUCT_NAME = "$(TARGET_NAME)";

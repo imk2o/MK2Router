@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let assistant = SegueAssistant(segue: segue, sender: sender)
+        
+        assistant.prepareIfIdentifierEquals("ModalText") { (destination: TextViewController) -> String in
+            return "Transit from Root View"
+        }
+    }
 }
-
