@@ -17,7 +17,10 @@ class ItemDetailViewController: UIViewController, Destination {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if self.navigationController?.viewControllers.count == 1 {
+            let dismissButton = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: #selector(dismiss))
+            self.navigationItem.leftBarButtonItem = dismissButton
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +43,19 @@ class ItemDetailViewController: UIViewController, Destination {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func showContactForm(sender: UIButton) {
+        guard let itemID = self.context else {
+            return
+        }
+        
+        self.performRoute(.ContactForm(itemID))
+    }
 
+    func dismiss() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     private func loadItem() {
         guard let itemID = self.context else {
             return

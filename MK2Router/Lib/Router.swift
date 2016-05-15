@@ -16,12 +16,16 @@ class Router {
 
     func perform<DestinationVC where DestinationVC: Destination, DestinationVC: UIViewController>(
         sourceViewController: UIViewController,
-        destinationViewController: DestinationVC,
+        destinationViewController: UIViewController,
         @noescape contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) {
+
+        guard let destinationContentViewController = destinationViewController.contentViewController() as? DestinationVC else {
+            return		// TODO
+        }
         
-        let context = contextForDestination(destinationViewController)
-        destinationViewController.context = context
+        let context = contextForDestination(destinationContentViewController)
+        destinationContentViewController.context = context
         
         if destinationViewController is UINavigationController {
             // モーダル遷移
@@ -45,7 +49,7 @@ class Router {
         } else {
             viewController = storyboard.instantiateInitialViewController()
         }
-        guard let destinationViewController = viewController as? DestinationVC else {
+        guard let destinationViewController = viewController else {
             return
         }
         
@@ -63,5 +67,15 @@ class Router {
         storyboardID: String? = nil
     ) {
         return self.perform(sourceViewController, storyboardName: storyboardName, storyboardID: storyboardID)
+    }
+}
+
+private extension UIViewController {
+    func contentViewController() -> UIViewController? {
+        if let navigationController = self as? UINavigationController {
+            return navigationController.topViewController
+        } else {
+            return self
+        }
     }
 }
