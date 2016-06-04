@@ -1,5 +1,5 @@
 //
-//  Destination.swift
+//  DestinationType.swift
 //  MK2Router
 //
 //  Created by k2o on 2016/05/12.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol Destination: class
+/// Routerをサポートする遷移先.
+protocol DestinationType: class
 {
     associatedtype Context
-    var context: Context? { get set }
+    var context: Context! { get set }
 }
-

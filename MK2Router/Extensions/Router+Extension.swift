@@ -8,10 +8,11 @@
 
 import UIKit
 
+// MARK: - アプリ固有のルート
 extension Router {
     enum Route {
-        case ContactForm(Int)
-        case ModalItemDetail(Int)
+        case ContactForm(Int)		// 問い合わせ画面(アイテムID)
+        case ModalItemDetail(Int)	// 詳細画面(アイテムID)
     }
     
     func perform(
@@ -31,7 +32,13 @@ extension Router {
     }
 }
 
+// MARK: - Router拡張を簡単に利用するユーティリティ.
 extension UIViewController {
+    /**
+     指定のルートで画面遷移.
+     
+     - parameter route: ルート.
+     */
     func performRoute(route: Router.Route) {
         Router.shared.perform(route, sourceViewController: self)
     }

@@ -8,16 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B147C8501CE49C11000E74D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C84F1CE49C11000E74D2 /* AppDelegate.swift */; };
-		B147C8521CE49C11000E74D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8511CE49C11000E74D2 /* ViewController.swift */; };
 		B147C8551CE49C11000E74D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147C8531CE49C11000E74D2 /* Main.storyboard */; };
 		B147C8571CE49C11000E74D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B147C8561CE49C11000E74D2 /* Assets.xcassets */; };
 		B147C85A1CE49C11000E74D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147C8581CE49C11000E74D2 /* LaunchScreen.storyboard */; };
 		B147C8651CE49C11000E74D2 /* MK2RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8641CE49C11000E74D2 /* MK2RouterTests.swift */; };
 		B147C8701CE49C11000E74D2 /* MK2RouterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C86F1CE49C11000E74D2 /* MK2RouterUITests.swift */; };
 		B147C87F1CE49C85000E74D2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C87E1CE49C85000E74D2 /* Router.swift */; };
-		B147C8811CE49C9F000E74D2 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8801CE49C9F000E74D2 /* Destination.swift */; };
+		B147C8811CE49C9F000E74D2 /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8801CE49C9F000E74D2 /* DestinationType.swift */; };
 		B147C8831CE49CEC000E74D2 /* SegueAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8821CE49CEC000E74D2 /* SegueAssistant.swift */; };
-		B147C8851CE4A130000E74D2 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8841CE4A130000E74D2 /* TextViewController.swift */; };
 		B147C8881CE75B38000E74D2 /* ItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8871CE75B38000E74D2 /* ItemProvider.swift */; };
 		B147C88A1CE75C2B000E74D2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8891CE75C2B000E74D2 /* Item.swift */; };
 		B147C88D1CE7612D000E74D2 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C88C1CE7612D000E74D2 /* ItemListViewController.swift */; };
@@ -50,7 +48,6 @@
 /* Begin PBXFileReference section */
 		B147C84C1CE49C11000E74D2 /* MK2Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MK2Router.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B147C84F1CE49C11000E74D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B147C8511CE49C11000E74D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B147C8541CE49C11000E74D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B147C8561CE49C11000E74D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B147C8591CE49C11000E74D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,9 +59,8 @@
 		B147C86F1CE49C11000E74D2 /* MK2RouterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MK2RouterUITests.swift; sourceTree = "<group>"; };
 		B147C8711CE49C11000E74D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B147C87E1CE49C85000E74D2 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Lib/Router.swift; sourceTree = "<group>"; };
-		B147C8801CE49C9F000E74D2 /* Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Destination.swift; path = Lib/Destination.swift; sourceTree = "<group>"; };
+		B147C8801CE49C9F000E74D2 /* DestinationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DestinationType.swift; path = Lib/DestinationType.swift; sourceTree = "<group>"; };
 		B147C8821CE49CEC000E74D2 /* SegueAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegueAssistant.swift; path = Lib/SegueAssistant.swift; sourceTree = "<group>"; };
-		B147C8841CE4A130000E74D2 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		B147C8871CE75B38000E74D2 /* ItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemProvider.swift; path = Models/ItemProvider.swift; sourceTree = "<group>"; };
 		B147C8891CE75C2B000E74D2 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Models/Item.swift; sourceTree = "<group>"; };
 		B147C88C1CE7612D000E74D2 /* ItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemListViewController.swift; path = Controllers/ItemListViewController.swift; sourceTree = "<group>"; };
@@ -130,8 +126,6 @@
 				B147C88E1CE76334000E74D2 /* Views */,
 				B147C8981CE8560D000E74D2 /* Extensions */,
 				B147C84F1CE49C11000E74D2 /* AppDelegate.swift */,
-				B147C8511CE49C11000E74D2 /* ViewController.swift */,
-				B147C8841CE4A130000E74D2 /* TextViewController.swift */,
 				B147C8581CE49C11000E74D2 /* LaunchScreen.storyboard */,
 				B147C8561CE49C11000E74D2 /* Assets.xcassets */,
 				B147C85B1CE49C11000E74D2 /* Info.plist */,
@@ -162,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				B147C87E1CE49C85000E74D2 /* Router.swift */,
-				B147C8801CE49C9F000E74D2 /* Destination.swift */,
+				B147C8801CE49C9F000E74D2 /* DestinationType.swift */,
 				B147C8821CE49CEC000E74D2 /* SegueAssistant.swift */,
 			);
 			name = Lib;
@@ -340,10 +334,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B147C89A1CE8562A000E74D2 /* Router+Extension.swift in Sources */,
-				B147C8521CE49C11000E74D2 /* ViewController.swift in Sources */,
 				B147C87F1CE49C85000E74D2 /* Router.swift in Sources */,
 				B147C88D1CE7612D000E74D2 /* ItemListViewController.swift in Sources */,
-				B147C8811CE49C9F000E74D2 /* Destination.swift in Sources */,
+				B147C8811CE49C9F000E74D2 /* DestinationType.swift in Sources */,
 				B147C8901CE7635C000E74D2 /* ItemCell.swift in Sources */,
 				B147C8831CE49CEC000E74D2 /* SegueAssistant.swift in Sources */,
 				B147C88A1CE75C2B000E74D2 /* Item.swift in Sources */,
@@ -351,7 +344,6 @@
 				B147C8921CE76682000E74D2 /* ItemDetailViewController.swift in Sources */,
 				B147C8971CE853F4000E74D2 /* ContactFormViewController.swift in Sources */,
 				B147C8881CE75B38000E74D2 /* ItemProvider.swift in Sources */,
-				B147C8851CE4A130000E74D2 /* TextViewController.swift in Sources */,
 				B147C89E1CE85C4A000E74D2 /* MessageProvider.swift in Sources */,
 				B147C89C1CE85C3C000E74D2 /* Message.swift in Sources */,
 			);
@@ -590,6 +582,7 @@
 				B147C8761CE49C11000E74D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B147C8771CE49C11000E74D2 /* Build configuration list for PBXNativeTarget "MK2RouterTests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +591,7 @@
 				B147C8791CE49C11000E74D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B147C87A1CE49C11000E74D2 /* Build configuration list for PBXNativeTarget "MK2RouterUITests" */ = {
 			isa = XCConfigurationList;
@@ -606,6 +600,7 @@
 				B147C87C1CE49C11000E74D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

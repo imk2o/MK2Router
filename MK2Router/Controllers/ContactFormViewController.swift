@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactFormViewController: UIViewController, Destination {
+class ContactFormViewController: UIViewController, DestinationType {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
@@ -44,9 +44,10 @@ class ContactFormViewController: UIViewController, Destination {
             return
         }
         
+        let delay: NSTimeInterval = 5
         let message = Message(itemID: itemID, title: title, detail: detail)
-        MessageProvider.shared.sendMessage(message) { 
-            let alert = UIAlertController(title: "", message: "メッセージを送信しました。", preferredStyle: .Alert)
+        MessageProvider.shared.sendMessage(message, delay: delay) {
+            let alert = UIAlertController(title: "", message: "メッセージを送信しました。\n(\(delay)秒後に通知されます)", preferredStyle: .Alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
                 self.close()
@@ -71,9 +72,7 @@ class ContactFormViewController: UIViewController, Destination {
     */
 
     private func loadItem() {
-        guard let itemID = self.context else {
-            return
-        }
+        let itemID = self.context
         
         ItemProvider.shared.getItemDetail(itemID) { (item) in
             self.titleLabel.text = item.title
@@ -81,9 +80,8 @@ class ContactFormViewController: UIViewController, Destination {
         }
     }
     
-    // MARK: - Router Destination
-    
+    // MARK: - Router DestinationType
+    // この画面は、表示するアイテムIDをパラメータとして受け取る
     typealias Context = Int
-    var context: Int?
-
+    var context: Int!
 }

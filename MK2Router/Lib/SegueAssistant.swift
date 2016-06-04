@@ -18,7 +18,7 @@ class SegueAssistant {
         self.sender = sender
     }
     
-    func prepareIfIdentifierEquals<DestinationVC where DestinationVC: Destination, DestinationVC: UIViewController>(
+    func prepareIfIdentifierEquals<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
         identifier: String,
         @noescape contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) {
@@ -34,7 +34,7 @@ class SegueAssistant {
         }
         
         guard let destinationViewController = _destinationViewController as? DestinationVC else {
-            return		// FIXME: debug message
+            fatalError("Destination view controller is not a type of \(String(DestinationVC)).")
         }
         
         let context = contextForDestination(destinationViewController)

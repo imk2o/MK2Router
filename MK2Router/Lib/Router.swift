@@ -8,35 +8,56 @@
 
 import UIKit
 
+/// ルータ.
 class Router {
     static let shared: Router = Router()
     
     private init() {
     }
 
-    func perform<DestinationVC where DestinationVC: Destination, DestinationVC: UIViewController>(
+    /**
+     画面遷移を行う.
+     遷移元のビューコントローラがNavigation Controller配下にあり、遷移先がNavigation Controllerでなければ
+     プッシュ遷移、それ以外の場合はモーダル遷移を行う.
+     
+     - parameter sourceViewController:      遷移元ビューコントローラ.
+     - parameter destinationViewController: 遷移先ビューコントローラ.
+     - parameter contextForDestination:     遷移先へ渡すコンテキストを求めるブロック.
+     */
+    func perform<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
         sourceViewController: UIViewController,
         destinationViewController: UIViewController,
         @noescape contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) {
 
         guard let destinationContentViewController = destinationViewController.contentViewController() as? DestinationVC else {
-            return		// TODO
+            fatalError("Destination view controller is not a type of \(String(DestinationVC)).")
         }
         
         let context = contextForDestination(destinationContentViewController)
         destinationContentViewController.context = context
         
-        if destinationViewController is UINavigationController {
+        if
+            let sourceNavigationController = sourceViewController.navigationController
+            where !(destinationViewController is UINavigationController)
+        {
+            // プッシュ遷移
+            sourceNavigationController.pushViewController(destinationViewController, animated: true)
+        } else {
             // モーダル遷移
             sourceViewController.presentViewController(destinationViewController, animated: true, completion: nil)
-        } else {
-            // プッシュ遷移
-            sourceViewController.navigationController?.pushViewController(destinationViewController, animated: true)
         }
     }
-    
-    func perform<DestinationVC where DestinationVC: Destination, DestinationVC: UIViewController>(
+
+    /**
+     画面遷移を行う.
+     
+     - parameter sourceViewController:  遷移元ビューコントローラ.
+     - parameter storyboardName:        遷移先ストーリーボード名.
+     - parameter storyboardID:          遷移先ストーリーボードID. nilの場合はInitial View Controllerが遷移先となる.
+     - parameter contextForDestination: 遷移先へ渡すコンテキストを求めるブロック.
+     */
+    func perform<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
         sourceViewController: UIViewController,
         storyboardName: String,
         storyboardID: String? = nil,

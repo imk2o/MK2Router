@@ -14,10 +14,10 @@ class MessageProvider {
     private init() {
     }
     
-    func sendMessage(message: Message, handler: () -> Void) {
+    func sendMessage(message: Message, delay: NSTimeInterval, handler: () -> Void) {
         let notification = UILocalNotification()
         
-        notification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        notification.fireDate = NSDate(timeIntervalSinceNow: delay)
         notification.timeZone = NSTimeZone.defaultTimeZone()
         notification.alertBody = "\(message.title)へのメッセージが送信されました！"
         notification.userInfo = ["itemID": message.itemID]

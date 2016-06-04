@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -29,8 +29,11 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // SegueAssistantを用いた画面遷移アシスト
         let assistant = SegueAssistant(segue: segue, sender: sender)
-        
+
+        // segue.identifierが"ShowDetail"の場合、
+        // 遷移先のItemDetailViewControllerにInt型のパラメータを渡す
         assistant.prepareIfIdentifierEquals("ShowDetail") { (destination: ItemDetailViewController) -> Int in
             guard
                 let indexPath = self.tableView.indexPathForSelectedRow,
@@ -51,7 +54,10 @@ class ItemListViewController: UIViewController, UITableViewDataSource, UITableVi
             self.tableView.reloadData()
         }
     }
-    
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension ItemListViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

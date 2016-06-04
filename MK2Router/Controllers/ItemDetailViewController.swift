@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController, Destination {
+class ItemDetailViewController: UIViewController, DestinationType {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,21 +34,12 @@ class ItemDetailViewController: UIViewController, Destination {
         self.loadItem()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     @IBAction func showContactForm(sender: UIButton) {
         guard let itemID = self.context else {
             return
         }
-        
+
+        // 指定のルートで問い合わせ画面へ
         self.performRoute(.ContactForm(itemID))
     }
 
@@ -57,10 +48,8 @@ class ItemDetailViewController: UIViewController, Destination {
     }
     
     private func loadItem() {
-        guard let itemID = self.context else {
-            return
-        }
-
+        let itemID = self.context
+        
         ItemProvider.shared.getItemDetail(itemID) { (item) in
             self.imageView.image = item.image
             self.titleLabel.text = item.title
@@ -68,8 +57,8 @@ class ItemDetailViewController: UIViewController, Destination {
         }
     }
     
-    // MARK: - Router Destination
-    
+    // MARK: - Router DestinationType
+    // この画面は、表示するアイテムIDをパラメータとして受け取る
     typealias Context = Int
-    var context: Int?
+    var context: Int!
 }
