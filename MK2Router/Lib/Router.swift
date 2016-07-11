@@ -35,7 +35,7 @@ class Router {
         }
         
         let context = contextForDestination(destinationContentViewController)
-        destinationContentViewController.context = context
+        self.store(context: context, for: destinationContentViewController)
         
         if
             let sourceNavigationController = sourceViewController.navigationController
@@ -88,6 +88,40 @@ class Router {
         storyboardID: String? = nil
     ) {
         return self.perform(sourceViewController, storyboardName: storyboardName, storyboardID: storyboardID)
+    }
+
+    // MARK: - Manage view controller context
+
+    // 遷移先VCごとのコンテキスト
+    // キーを弱参照にすることで, VCの破棄とともに揮発する
+    private var destinationToContexts: NSMapTable = {
+        return NSMapTable.weakToStrongObjectsMapTable()
+    }()
+    
+    /**
+     遷移コンテキストを保存する.
+     
+     - parameter context:                   コンテキスト.
+     - parameter destinationViewController: 遷移先ビューコントローラ.
+     */
+    func store<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
+        context context: DestinationVC.Context,
+                for destinationViewController: DestinationVC
+        ) {
+        self.destinationToContexts.setObject(context as? AnyObject, forKey: destinationViewController)
+    }
+    
+    /**
+     ビューコントローラに対するコンテキストを求める.
+     
+     - parameter destinationViewController: 遷移先ビューコントローラ.
+     
+     - returns: コンテキストを返す.
+     */
+    func context<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
+        for destinationViewController: DestinationVC
+        ) -> DestinationVC.Context? {
+        return self.destinationToContexts.objectForKey(destinationViewController) as? DestinationVC.Context
     }
 }
 

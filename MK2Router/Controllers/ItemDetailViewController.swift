@@ -48,7 +48,9 @@ class ItemDetailViewController: UIViewController, DestinationType {
     }
     
     private func loadItem() {
-        let itemID = self.context
+        guard let itemID = self.context else {
+            return
+        }
         
         ItemProvider.shared.getItemDetail(itemID) { (item) in
             self.imageView.image = item.image
@@ -60,5 +62,4 @@ class ItemDetailViewController: UIViewController, DestinationType {
     // MARK: - Router DestinationType
     // この画面は、表示するアイテムIDをパラメータとして受け取る
     typealias Context = Int
-    var context: Int!
 }

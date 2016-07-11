@@ -72,7 +72,9 @@ class ContactFormViewController: UIViewController, DestinationType {
     */
 
     private func loadItem() {
-        let itemID = self.context
+        guard let itemID = self.context else {
+            return
+        }
         
         ItemProvider.shared.getItemDetail(itemID) { (item) in
             self.titleLabel.text = item.title
@@ -83,5 +85,4 @@ class ContactFormViewController: UIViewController, DestinationType {
     // MARK: - Router DestinationType
     // この画面は、表示するアイテムIDをパラメータとして受け取る
     typealias Context = Int
-    var context: Int!
 }

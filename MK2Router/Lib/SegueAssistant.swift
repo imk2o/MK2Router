@@ -38,6 +38,6 @@ class SegueAssistant {
         }
         
         let context = contextForDestination(destinationViewController)
-        destinationViewController.context = context
+        Router.shared.store(context: context, for: destinationViewController)
     }
 }

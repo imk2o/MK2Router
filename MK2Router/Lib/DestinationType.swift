@@ -12,5 +12,11 @@ import UIKit
 protocol DestinationType: class
 {
     associatedtype Context
-    var context: Context! { get set }
+    var context: Context! { get }
+}
+
+extension DestinationType where Self: UIViewController {
+    var context: Context! {
+        return Router.shared.context(for: self)
+    }
 }
