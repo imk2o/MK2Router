@@ -98,6 +98,15 @@ class Router {
         return NSMapTable.weakToStrongObjectsMapTable()
     }()
     
+    // 構造体やタプルなどの値型に対応するためのホルダクラス
+    private class ContextHolder {
+        let body: Any
+        
+        init(body: Any) {
+            self.body = body
+        }
+    }
+    
     /**
      遷移コンテキストを保存する.
      
@@ -108,7 +117,8 @@ class Router {
         context context: DestinationVC.Context,
                 for destinationViewController: DestinationVC
         ) {
-        self.destinationToContexts.setObject(context as? AnyObject, forKey: destinationViewController)
+        
+        self.destinationToContexts.setObject(ContextHolder(body: context), forKey: destinationViewController)
     }
     
     /**
@@ -121,7 +131,11 @@ class Router {
     func context<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
         for destinationViewController: DestinationVC
         ) -> DestinationVC.Context? {
-        return self.destinationToContexts.objectForKey(destinationViewController) as? DestinationVC.Context
+        guard let contextHolder = self.destinationToContexts.objectForKey(destinationViewController) as? ContextHolder else {
+            return nil
+        }
+
+        return contextHolder.body as? DestinationVC.Context
     }
 }
 
