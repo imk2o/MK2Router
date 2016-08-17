@@ -9,8 +9,8 @@
 import UIKit
 
 /// ルータ.
-class Router {
-    static let shared: Router = Router()
+public class Router {
+    public static let shared: Router = Router()
     
     private init() {
     }
@@ -24,7 +24,7 @@ class Router {
      - parameter destinationViewController: 遷移先ビューコントローラ.
      - parameter contextForDestination:     遷移先へ渡すコンテキストを求めるブロック.
      */
-    func perform<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
+    public func perform<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
         sourceViewController: UIViewController,
         destinationViewController: UIViewController,
         @noescape contextForDestination: ((DestinationVC) -> DestinationVC.Context)
@@ -57,7 +57,7 @@ class Router {
      - parameter storyboardID:          遷移先ストーリーボードID. nilの場合はInitial View Controllerが遷移先となる.
      - parameter contextForDestination: 遷移先へ渡すコンテキストを求めるブロック.
      */
-    func perform<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
+    public func perform<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
         sourceViewController: UIViewController,
         storyboardName: String,
         storyboardID: String? = nil,
@@ -82,7 +82,7 @@ class Router {
     }
 
     // コンテキスト渡しが不要な遷移
-    func perform(
+    public func perform(
         sourceViewController: UIViewController,
         storyboardName: String,
         storyboardID: String? = nil

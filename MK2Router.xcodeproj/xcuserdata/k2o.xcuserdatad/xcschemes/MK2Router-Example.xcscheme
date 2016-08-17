@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B147C84B1CE49C11000E74D2"
-               BuildableName = "MK2Router.app"
-               BlueprintName = "MK2Router"
+               BuildableName = "MK2Router-Example.app"
+               BlueprintName = "MK2Router-Example"
                ReferencedContainer = "container:MK2Router.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,13 +48,23 @@
                ReferencedContainer = "container:MK2Router.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B1235AFD1D618BA300973ED5"
+               BuildableName = "MK2Router-iOSTests.xctest"
+               BlueprintName = "MK2Router-iOSTests"
+               ReferencedContainer = "container:MK2Router.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B147C84B1CE49C11000E74D2"
-            BuildableName = "MK2Router.app"
-            BlueprintName = "MK2Router"
+            BuildableName = "MK2Router-Example.app"
+            BlueprintName = "MK2Router-Example"
             ReferencedContainer = "container:MK2Router.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B147C84B1CE49C11000E74D2"
-            BuildableName = "MK2Router.app"
-            BlueprintName = "MK2Router"
+            BuildableName = "MK2Router-Example.app"
+            BlueprintName = "MK2Router-Example"
             ReferencedContainer = "container:MK2Router.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,8 +105,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B147C84B1CE49C11000E74D2"
-            BuildableName = "MK2Router.app"
-            BlueprintName = "MK2Router"
+            BuildableName = "MK2Router-Example.app"
+            BlueprintName = "MK2Router-Example"
             ReferencedContainer = "container:MK2Router.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

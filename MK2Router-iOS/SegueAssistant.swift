@@ -9,16 +9,16 @@
 import UIKit
 
 /// prepareForSegue の代行を行う.
-class SegueAssistant {
-    private (set) var segue: UIStoryboardSegue
-    private (set) var sender: AnyObject?
+public class SegueAssistant {
+    public private(set) var segue: UIStoryboardSegue
+    public private(set) var sender: AnyObject?
     
-    init(segue: UIStoryboardSegue, sender: AnyObject?) {
+    public init(segue: UIStoryboardSegue, sender: AnyObject?) {
         self.segue = segue
         self.sender = sender
     }
     
-    func prepareIfIdentifierEquals<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
+    public func prepareIfIdentifierEquals<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
         identifier: String,
         @noescape contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) {

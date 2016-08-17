@@ -9,14 +9,14 @@
 import UIKit
 
 /// Routerをサポートする遷移先.
-protocol DestinationType: class
+public protocol DestinationType: class
 {
     associatedtype Context
     var context: Context! { get }
 }
 
-extension DestinationType where Self: UIViewController {
-    var context: Context! {
+public extension DestinationType where Self: UIViewController {
+    public var context: Context! {
         return Router.shared.context(for: self)
     }
 }

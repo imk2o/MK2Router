@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MK2Router
 
 // MARK: - アプリ固有のルート
 extension Router {
