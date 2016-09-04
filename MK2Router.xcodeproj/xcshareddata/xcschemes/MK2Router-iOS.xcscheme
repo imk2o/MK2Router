@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B1235AF41D618BA300973ED5"
-               BuildableName = "MK2Router-iOS.framework"
+               BuildableName = "MK2Router.framework"
                BlueprintName = "MK2Router-iOS"
                ReferencedContainer = "container:MK2Router.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B1235AF41D618BA300973ED5"
-            BuildableName = "MK2Router-iOS.framework"
+            BuildableName = "MK2Router.framework"
             BlueprintName = "MK2Router-iOS"
             ReferencedContainer = "container:MK2Router.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B1235AF41D618BA300973ED5"
-            BuildableName = "MK2Router-iOS.framework"
+            BuildableName = "MK2Router.framework"
             BlueprintName = "MK2Router-iOS"
             ReferencedContainer = "container:MK2Router.xcodeproj">
          </BuildableReference>
