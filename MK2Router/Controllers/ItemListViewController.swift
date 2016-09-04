@@ -47,6 +47,10 @@ class ItemListViewController: UIViewController {
         }
     }
 
+    @IBAction func showPreferences(sender: UIBarButtonItem) {
+        self.performRoute(.Preferences)
+    }
+    
     private var items: [Item]?
     
     private func loadItems() {

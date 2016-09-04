@@ -15,6 +15,8 @@
 		B1235B191D618F5C00973ED5 /* DestinationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1235B161D618F5C00973ED5 /* DestinationType.swift */; };
 		B1235B1A1D618F5C00973ED5 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1235B171D618F5C00973ED5 /* Router.swift */; };
 		B1235B1B1D618F5C00973ED5 /* SegueAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1235B181D618F5C00973ED5 /* SegueAssistant.swift */; };
+		B13517A81D7BDA5100CC513D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13517A71D7BDA5100CC513D /* PreferencesViewController.swift */; };
+		B13517A91D7BDA5B00CC513D /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B13517A41D7BD97900CC513D /* Preferences.storyboard */; };
 		B147C8501CE49C11000E74D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C84F1CE49C11000E74D2 /* AppDelegate.swift */; };
 		B147C8551CE49C11000E74D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147C8531CE49C11000E74D2 /* Main.storyboard */; };
 		B147C8571CE49C11000E74D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B147C8561CE49C11000E74D2 /* Assets.xcassets */; };
@@ -95,6 +97,8 @@
 		B1235B161D618F5C00973ED5 /* DestinationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationType.swift; sourceTree = "<group>"; };
 		B1235B171D618F5C00973ED5 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B1235B181D618F5C00973ED5 /* SegueAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueAssistant.swift; sourceTree = "<group>"; };
+		B13517A51D7BD97900CC513D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Preferences.storyboard; sourceTree = "<group>"; };
+		B13517A71D7BDA5100CC513D /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesViewController.swift; path = Controllers/PreferencesViewController.swift; sourceTree = "<group>"; };
 		B147C84C1CE49C11000E74D2 /* MK2Router-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MK2Router-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B147C84F1CE49C11000E74D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B147C8541CE49C11000E74D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 				B147C88C1CE7612D000E74D2 /* ItemListViewController.swift */,
 				B147C8911CE76682000E74D2 /* ItemDetailViewController.swift */,
 				B147C8961CE853F4000E74D2 /* ContactFormViewController.swift */,
+				B13517A71D7BDA5100CC513D /* PreferencesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				B147C8531CE49C11000E74D2 /* Main.storyboard */,
 				B147C88F1CE7635C000E74D2 /* ItemCell.swift */,
 				B147C8931CE85351000E74D2 /* Misc.storyboard */,
+				B13517A41D7BD97900CC513D /* Preferences.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -458,6 +464,7 @@
 				B147C85A1CE49C11000E74D2 /* LaunchScreen.storyboard in Resources */,
 				B147C8571CE49C11000E74D2 /* Assets.xcassets in Resources */,
 				B147C8951CE85351000E74D2 /* Misc.storyboard in Resources */,
+				B13517A91D7BDA5B00CC513D /* Preferences.storyboard in Resources */,
 				B147C8551CE49C11000E74D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +518,7 @@
 				B147C8881CE75B38000E74D2 /* ItemProvider.swift in Sources */,
 				B147C89E1CE85C4A000E74D2 /* MessageProvider.swift in Sources */,
 				B147C89C1CE85C3C000E74D2 /* Message.swift in Sources */,
+				B13517A81D7BDA5100CC513D /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +569,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B13517A41D7BD97900CC513D /* Preferences.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B13517A51D7BD97900CC513D /* Base */,
+			);
+			name = Preferences.storyboard;
+			sourceTree = "<group>";
+		};
 		B147C8531CE49C11000E74D2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -820,6 +836,7 @@
 				B1235B0E1D618BA300973ED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1235B101D618BA300973ED5 /* Build configuration list for PBXNativeTarget "MK2Router-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -828,6 +845,7 @@
 				B1235B121D618BA300973ED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B147C8471CE49C11000E74D2 /* Build configuration list for PBXProject "MK2Router" */ = {
 			isa = XCConfigurationList;

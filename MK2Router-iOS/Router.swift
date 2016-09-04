@@ -81,15 +81,6 @@ public class Router {
         )
     }
 
-    // コンテキスト渡しが不要な遷移
-    public func perform(
-        sourceViewController: UIViewController,
-        storyboardName: String,
-        storyboardID: String? = nil
-    ) {
-        return self.perform(sourceViewController, storyboardName: storyboardName, storyboardID: storyboardID)
-    }
-
     // MARK: - Manage view controller context
 
     // 遷移先VCごとのコンテキスト

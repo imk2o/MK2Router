@@ -14,6 +14,7 @@ extension Router {
     enum Route {
         case ContactForm(Int)		// 問い合わせ画面(アイテムID)
         case ModalItemDetail(Int)	// 詳細画面(アイテムID)
+        case Preferences			// 設定画面
     }
     
     func perform(
@@ -28,6 +29,9 @@ extension Router {
         case .ModalItemDetail(let itemID):
             self.perform(sourceViewController, storyboardName: "Main", storyboardID: "ItemDetailNav") { (destination: ItemDetailViewController) -> Int in
                 return itemID
+            }
+        case .Preferences:
+            self.perform(sourceViewController, storyboardName: "Preferences") { (destination: PreferencesViewController) in
             }
         }
     }
