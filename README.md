@@ -7,8 +7,8 @@ See also: Qiita(Japanese) http://qiita.com/imk2o/items/8a46cfeaede7cbba4dcb
 ## Requirements
 
 * iOS 8.0+
-* Xcode 7.3+
-* Swift 2.2
+* Xcode 8.0+
+* Swift 2.3
 
 ## Install
 
@@ -17,7 +17,7 @@ See also: Qiita(Japanese) http://qiita.com/imk2o/items/8a46cfeaede7cbba4dcb
 Add the following line to your `Cartfile`.
 
 ```
-github 'imk2o/MK2Router' ~> 1.0.0
+github 'imk2o/MK2Router' ~> 1.0.2
 ```
 
 Run `carthage update` to build the framework and drag the built `MK2Router.framework` into your Xcode project.
@@ -27,7 +27,7 @@ Run `carthage update` to build the framework and drag the built `MK2Router.frame
 Add the following line to your `Podfile`.
 
 ```
-pod 'MK2Router', '~> 1.0.0'
+pod 'MK2Router', '~> 1.0.2'
 ```
 
 Run `pod install` and open your Xcode workspace.
