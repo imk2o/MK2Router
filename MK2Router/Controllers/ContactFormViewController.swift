@@ -10,9 +10,15 @@ import UIKit
 import MK2Router
 
 class ContactFormViewController: UIViewController, DestinationType {
-
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
+    
+    private var item: Item! {
+        didSet {
+            self.titleLabel.text = self.item.title
+            self.messageTextView.becomeFirstResponder()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +44,6 @@ class ContactFormViewController: UIViewController, DestinationType {
     
     @IBAction func sendMessage(_ sender: UIBarButtonItem) {
         guard
-            let itemID = self.context,
             let title = self.titleLabel.text,
             let detail = self.messageTextView.text
         else {
@@ -46,7 +51,7 @@ class ContactFormViewController: UIViewController, DestinationType {
         }
         
         let delay: TimeInterval = 5
-        let message = Message(itemID: itemID, title: title, detail: detail)
+        let message = Message(itemID: self.item.ID, title: title, detail: detail)
         MessageProvider.shared.sendMessage(message, delay: delay) {
             let alert = UIAlertController(title: "", message: "メッセージを送信しました。\n(\(delay)秒後に通知されます)", preferredStyle: .alert)
             
@@ -73,17 +78,25 @@ class ContactFormViewController: UIViewController, DestinationType {
     */
 
     fileprivate func loadItem() {
-        guard let itemID = self.context else {
-            return
+        guard let context = self.context else {
+            fatalError()
         }
         
-        ItemProvider.shared.getItemDetail(itemID) { (item) in
-            self.titleLabel.text = item.title
-            self.messageTextView.becomeFirstResponder()
+        switch context {
+        case .itemID(let itemID):
+            ItemProvider.shared.getItemDetail(itemID) { (item) in
+                self.item = item
+            }
+        case .item(let item):
+            self.item = item
         }
     }
     
     // MARK: - Router DestinationType
-    // この画面は、表示するアイテムIDをパラメータとして受け取る
-    typealias Context = Int
+    // この画面は、アイテムIDまたはアイテムそのものをパラメータとして受け取る
+    enum ContextType {
+        case itemID(Int)
+        case item(Item)
+    }
+    typealias Context = ContextType
 }

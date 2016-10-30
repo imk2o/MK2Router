@@ -152,10 +152,10 @@
 		B147C8431CE49C11000E74D2 = {
 			isa = PBXGroup;
 			children = (
+				B1235AF61D618BA300973ED5 /* MK2Router-iOS */,
 				B147C84E1CE49C11000E74D2 /* MK2Router-Example */,
 				B147C8631CE49C11000E74D2 /* MK2RouterTests */,
 				B147C86E1CE49C11000E74D2 /* MK2RouterUITests */,
-				B1235AF61D618BA300973ED5 /* MK2Router-iOS */,
 				B147C84D1CE49C11000E74D2 /* Products */,
 			);
 			sourceTree = "<group>";

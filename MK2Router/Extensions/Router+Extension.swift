@@ -12,7 +12,7 @@ import MK2Router
 // MARK: - アプリ固有のルート
 extension Router {
     enum Route {
-        case contactForm(Int)		// 問い合わせ画面(アイテムID)
+        case contactForm(ContactFormViewController.ContextType)		// 問い合わせ画面
         case modalItemDetail(Int)	// 詳細画面(アイテムID)
         case preferences			// 設定画面
     }
@@ -22,12 +22,12 @@ extension Router {
         sourceViewController: UIViewController
     ) {
         switch route {
-        case .contactForm(let itemID):
-            self.perform(sourceViewController, storyboardName: "Misc", storyboardID: "ContactFormNav") { (destination: ContactFormViewController) -> Int in
-                return itemID
+        case .contactForm(let contextType):
+            self.perform(sourceViewController, storyboardName: "Misc", storyboardID: "ContactFormNav") { (destination: ContactFormViewController) in
+                return contextType
             }
         case .modalItemDetail(let itemID):
-            self.perform(sourceViewController, storyboardName: "Main", storyboardID: "ItemDetailNav") { (destination: ItemDetailViewController) -> Int in
+            self.perform(sourceViewController, storyboardName: "Main", storyboardID: "ItemDetailNav") { (destination: ItemDetailViewController) in
                 return itemID
             }
         case .preferences:

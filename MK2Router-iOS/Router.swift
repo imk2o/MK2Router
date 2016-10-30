@@ -106,7 +106,7 @@ open class Router {
      */
     func store<DestinationVC>(
         context: DestinationVC.Context,
-                for destinationViewController: DestinationVC
+        for destinationViewController: DestinationVC
         ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
         
         self.destinationToContexts.setObject(ContextHolder(body: context), forKey: destinationViewController)

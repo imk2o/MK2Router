@@ -41,7 +41,7 @@ class ItemDetailViewController: UIViewController, DestinationType {
         }
 
         // 指定のルートで問い合わせ画面へ
-        self.performRoute(.contactForm(itemID))
+        self.performRoute(.contactForm(.itemID(itemID)))
     }
 
     @IBAction func dismiss(_ sender: UIBarButtonItem) {
