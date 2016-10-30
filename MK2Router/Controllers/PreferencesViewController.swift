@@ -16,7 +16,7 @@ class PreferencesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             self.versionCell.detailTextLabel?.text = version
         }
         
@@ -32,8 +32,8 @@ class PreferencesViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func dismiss(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismiss(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

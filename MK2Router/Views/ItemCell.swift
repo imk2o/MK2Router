@@ -18,13 +18,13 @@ class ItemCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
-    func configure(item: Item) {
+    func configure(_ item: Item) {
         self.itemImageView.image = item.image
         self.titleLabel.text = item.title
         self.detailLabel.text = item.detail

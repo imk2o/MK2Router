@@ -9,10 +9,10 @@
 import UIKit
 
 /// ルータ.
-public class Router {
-    public static let shared: Router = Router()
+open class Router {
+    open static let shared: Router = Router()
     
-    private init() {
+    fileprivate init() {
     }
 
     /**
@@ -24,14 +24,14 @@ public class Router {
      - parameter destinationViewController: 遷移先ビューコントローラ.
      - parameter contextForDestination:     遷移先へ渡すコンテキストを求めるブロック.
      */
-    public func perform<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
-        sourceViewController: UIViewController,
+    open func perform<DestinationVC>(
+        _ sourceViewController: UIViewController,
         destinationViewController: UIViewController,
-        @noescape contextForDestination: ((DestinationVC) -> DestinationVC.Context)
-    ) {
+        contextForDestination: ((DestinationVC) -> DestinationVC.Context)
+    ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
 
         guard let destinationContentViewController = destinationViewController.contentViewController() as? DestinationVC else {
-            fatalError("Destination view controller is not a type of \(String(DestinationVC)).")
+            fatalError("Destination view controller is not a type of DestinationType.")
         }
         
         let context = contextForDestination(destinationContentViewController)
@@ -39,13 +39,13 @@ public class Router {
         
         if
             let sourceNavigationController = sourceViewController.navigationController
-            where !(destinationViewController is UINavigationController)
+            , !(destinationViewController is UINavigationController)
         {
             // プッシュ遷移
             sourceNavigationController.pushViewController(destinationViewController, animated: true)
         } else {
             // モーダル遷移
-            sourceViewController.presentViewController(destinationViewController, animated: true, completion: nil)
+            sourceViewController.present(destinationViewController, animated: true, completion: nil)
         }
     }
 
@@ -57,16 +57,16 @@ public class Router {
      - parameter storyboardID:          遷移先ストーリーボードID. nilの場合はInitial View Controllerが遷移先となる.
      - parameter contextForDestination: 遷移先へ渡すコンテキストを求めるブロック.
      */
-    public func perform<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
-        sourceViewController: UIViewController,
+    open func perform<DestinationVC>(
+        _ sourceViewController: UIViewController,
         storyboardName: String,
         storyboardID: String? = nil,
-        @noescape contextForDestination: ((DestinationVC) -> DestinationVC.Context)
-    ) {
+        contextForDestination: ((DestinationVC) -> DestinationVC.Context)
+    ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         let viewController: UIViewController?
         if let storyboardID = storyboardID {
-            viewController = storyboard.instantiateViewControllerWithIdentifier(storyboardID)
+            viewController = storyboard.instantiateViewController(withIdentifier: storyboardID)
         } else {
             viewController = storyboard.instantiateInitialViewController()
         }
@@ -85,12 +85,12 @@ public class Router {
 
     // 遷移先VCごとのコンテキスト
     // キーを弱参照にすることで, VCの破棄とともに揮発する
-    private var destinationToContexts: NSMapTable = {
-        return NSMapTable.weakToStrongObjectsMapTable()
+    fileprivate var destinationToContexts: NSMapTable<UIViewController, ContextHolder> = {
+        return NSMapTable<UIViewController, ContextHolder>.weakToStrongObjects()
     }()
     
     // 構造体やタプルなどの値型に対応するためのホルダクラス
-    private class ContextHolder {
+    fileprivate class ContextHolder {
         let body: Any
         
         init(body: Any) {
@@ -104,10 +104,10 @@ public class Router {
      - parameter context:                   コンテキスト.
      - parameter destinationViewController: 遷移先ビューコントローラ.
      */
-    func store<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
-        context context: DestinationVC.Context,
+    func store<DestinationVC>(
+        context: DestinationVC.Context,
                 for destinationViewController: DestinationVC
-        ) {
+        ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
         
         self.destinationToContexts.setObject(ContextHolder(body: context), forKey: destinationViewController)
     }
@@ -119,10 +119,10 @@ public class Router {
      
      - returns: コンテキストを返す.
      */
-    func context<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
+    func context<DestinationVC>(
         for destinationViewController: DestinationVC
-        ) -> DestinationVC.Context? {
-        guard let contextHolder = self.destinationToContexts.objectForKey(destinationViewController) as? ContextHolder else {
+        ) -> DestinationVC.Context? where DestinationVC: DestinationType, DestinationVC: UIViewController {
+        guard let contextHolder = self.destinationToContexts.object(forKey: destinationViewController) else {
             return nil
         }
 

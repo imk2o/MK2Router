@@ -19,7 +19,7 @@ class ItemDetailViewController: UIViewController, DestinationType {
         super.viewDidLoad()
 
         if self.navigationController?.viewControllers.count == 1 {
-            let dismissButton = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: #selector(dismiss))
+            let dismissButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(self.dismiss(_:)))
             self.navigationItem.leftBarButtonItem = dismissButton
         }
     }
@@ -29,26 +29,26 @@ class ItemDetailViewController: UIViewController, DestinationType {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.loadItem()
     }
 
-    @IBAction func showContactForm(sender: UIButton) {
+    @IBAction func showContactForm(_ sender: UIButton) {
         guard let itemID = self.context else {
             return
         }
 
         // 指定のルートで問い合わせ画面へ
-        self.performRoute(.ContactForm(itemID))
+        self.performRoute(.contactForm(itemID))
     }
 
-    func dismiss() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismiss(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    private func loadItem() {
+    fileprivate func loadItem() {
         guard let itemID = self.context else {
             return
         }

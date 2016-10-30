@@ -20,7 +20,7 @@ class ContactFormViewController: UIViewController, DestinationType {
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.loadItem()
@@ -32,11 +32,11 @@ class ContactFormViewController: UIViewController, DestinationType {
     }
     
 
-    @IBAction func cancel(sender: UIBarButtonItem) {
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.close()
     }
     
-    @IBAction func sendMessage(sender: UIBarButtonItem) {
+    @IBAction func sendMessage(_ sender: UIBarButtonItem) {
         guard
             let itemID = self.context,
             let title = self.titleLabel.text,
@@ -45,21 +45,21 @@ class ContactFormViewController: UIViewController, DestinationType {
             return
         }
         
-        let delay: NSTimeInterval = 5
+        let delay: TimeInterval = 5
         let message = Message(itemID: itemID, title: title, detail: detail)
         MessageProvider.shared.sendMessage(message, delay: delay) {
-            let alert = UIAlertController(title: "", message: "メッセージを送信しました。\n(\(delay)秒後に通知されます)", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "", message: "メッセージを送信しました。\n(\(delay)秒後に通知されます)", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
                 self.close()
             }))
             
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
  
-    private func close() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    fileprivate func close() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*
@@ -72,7 +72,7 @@ class ContactFormViewController: UIViewController, DestinationType {
     }
     */
 
-    private func loadItem() {
+    fileprivate func loadItem() {
         guard let itemID = self.context else {
             return
         }
