@@ -11,18 +11,18 @@ import UIKit
 class MessageProvider {
     static let shared: MessageProvider = MessageProvider()
     
-    private init() {
+    fileprivate init() {
     }
     
-    func sendMessage(message: Message, delay: NSTimeInterval, handler: () -> Void) {
+    func sendMessage(_ message: Message, delay: TimeInterval, handler: () -> Void) {
         let notification = UILocalNotification()
         
-        notification.fireDate = NSDate(timeIntervalSinceNow: delay)
-        notification.timeZone = NSTimeZone.defaultTimeZone()
+        notification.fireDate = Date(timeIntervalSinceNow: delay)
+        notification.timeZone = TimeZone.current
         notification.alertBody = "\(message.title)へのメッセージが送信されました！"
         notification.userInfo = ["itemID": message.itemID]
         
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        UIApplication.shared.scheduleLocalNotification(notification)
         
         handler()
     }

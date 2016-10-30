@@ -11,10 +11,10 @@ import UIKit
 class ItemProvider {
     static let shared: ItemProvider = ItemProvider()
     
-    private init() {
+    fileprivate init() {
     }
     
-    func getAllItems(handler: ([Item]) -> Void) {
+    func getAllItems(_ handler: ([Item]) -> Void) {
         let items = [
             self.itemForID(1, imageQuarity: "small"),
             self.itemForID(2, imageQuarity: "small"),
@@ -26,7 +26,7 @@ class ItemProvider {
         handler(items)
     }
 
-    func getItemDetail(ID: Int, handler: (Item) -> Void) {
+    func getItemDetail(_ ID: Int, handler: (Item) -> Void) {
         let item = self.itemForID(ID, imageQuarity: "large")
         
         handler(item)
@@ -34,7 +34,7 @@ class ItemProvider {
     
     // MARK: - 
     
-    private func itemForID(ID: Int, imageQuarity: String) -> Item {
+    fileprivate func itemForID(_ ID: Int, imageQuarity: String) -> Item {
         guard let fixture = self.fixtures[ID] else {
             fatalError()
         }
@@ -50,7 +50,7 @@ class ItemProvider {
         return Item(ID: ID, title: title, detail: detail, image: UIImage(named: "\(imagePrefix)_\(imageQuarity)"))
     }
     
-    private let fixtures = [
+    fileprivate let fixtures = [
         1: [
             "title": "弁当",
             "detail": "弁当（辨當、べんとう）とは、携帯できるようにした食糧のうち、食事に相当するものである。家庭で作る手作り弁当と、市販される商品としての弁当の2種に大別される。後者を「買い弁」ということがある[1]。海外でも'Bento'として日本式の弁当箱とともに普及し始めた。",

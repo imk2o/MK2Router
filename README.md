@@ -8,7 +8,7 @@ See also: Qiita(Japanese) http://qiita.com/imk2o/items/8a46cfeaede7cbba4dcb
 
 * iOS 8.0+
 * Xcode 8.0+
-* Swift 2.3
+* Swift 3.0
 
 ## Install
 
@@ -17,7 +17,7 @@ See also: Qiita(Japanese) http://qiita.com/imk2o/items/8a46cfeaede7cbba4dcb
 Add the following line to your `Cartfile`.
 
 ```
-github 'imk2o/MK2Router' ~> 1.0.2
+github 'imk2o/MK2Router' ~> 2.0.0
 ```
 
 Run `carthage update` to build the framework and drag the built `MK2Router.framework` into your Xcode project.
@@ -27,7 +27,7 @@ Run `carthage update` to build the framework and drag the built `MK2Router.frame
 Add the following line to your `Podfile`.
 
 ```
-pod 'MK2Router', '~> 1.0.2'
+pod 'MK2Router', '~> 2.0.0'
 ```
 
 Run `pod install` and open your Xcode workspace.
@@ -65,7 +65,7 @@ The `SegueAssistant` class provides passing parameters between view controllers.
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     let assistant = SegueAssistant(segue: segue, sender: sender)
 
-    assistant.prepareIfIdentifierEquals("ShowDetail") { (destination: ItemDetailViewController) -> Int in
+    assistant.prepareIfIdentifierEquals("ShowDetail") { (destination: ItemDetailViewController) in
         guard
             let indexPath = self.tableView.indexPathForSelectedRow,
             let selectedItem = self.items?[indexPath.row]
@@ -91,6 +91,21 @@ Router.shared.perform(
 ) { (destination: ItemDetailViewController) -> Int in
     return itemID    // pass the seleted item ID
 }
+```
+
+### Variant Context
+
+If you want the `DestinationType.Context` equips variant type, use `enum` type as context.
+
+```
+class ItemDetailViewController: UIViewController, DestinationType {
+    enum ContextType {
+        case itemID(Int)
+        case item(Item)
+    }
+    typealias Context = ContextType
+
+    ...
 ```
 
 ## License

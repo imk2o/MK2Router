@@ -48,16 +48,6 @@
                ReferencedContainer = "container:MK2Router.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1235AFD1D618BA300973ED5"
-               BuildableName = "MK2Router-iOSTests.xctest"
-               BlueprintName = "MK2Router-iOSTests"
-               ReferencedContainer = "container:MK2Router.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

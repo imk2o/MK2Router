@@ -10,9 +10,15 @@ import UIKit
 import MK2Router
 
 class ContactFormViewController: UIViewController, DestinationType {
-
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
+    
+    private var item: Item! {
+        didSet {
+            self.titleLabel.text = self.item.title
+            self.messageTextView.becomeFirstResponder()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +26,7 @@ class ContactFormViewController: UIViewController, DestinationType {
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.loadItem()
@@ -32,34 +38,33 @@ class ContactFormViewController: UIViewController, DestinationType {
     }
     
 
-    @IBAction func cancel(sender: UIBarButtonItem) {
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.close()
     }
     
-    @IBAction func sendMessage(sender: UIBarButtonItem) {
+    @IBAction func sendMessage(_ sender: UIBarButtonItem) {
         guard
-            let itemID = self.context,
             let title = self.titleLabel.text,
             let detail = self.messageTextView.text
         else {
             return
         }
         
-        let delay: NSTimeInterval = 5
-        let message = Message(itemID: itemID, title: title, detail: detail)
+        let delay: TimeInterval = 5
+        let message = Message(itemID: self.item.ID, title: title, detail: detail)
         MessageProvider.shared.sendMessage(message, delay: delay) {
-            let alert = UIAlertController(title: "", message: "メッセージを送信しました。\n(\(delay)秒後に通知されます)", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "", message: "メッセージを送信しました。\n(\(delay)秒後に通知されます)", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
                 self.close()
             }))
             
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
  
-    private func close() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    fileprivate func close() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*
@@ -72,18 +77,26 @@ class ContactFormViewController: UIViewController, DestinationType {
     }
     */
 
-    private func loadItem() {
-        guard let itemID = self.context else {
-            return
+    fileprivate func loadItem() {
+        guard let context = self.context else {
+            fatalError()
         }
         
-        ItemProvider.shared.getItemDetail(itemID) { (item) in
-            self.titleLabel.text = item.title
-            self.messageTextView.becomeFirstResponder()
+        switch context {
+        case .itemID(let itemID):
+            ItemProvider.shared.getItemDetail(itemID) { (item) in
+                self.item = item
+            }
+        case .item(let item):
+            self.item = item
         }
     }
     
     // MARK: - Router DestinationType
-    // この画面は、表示するアイテムIDをパラメータとして受け取る
-    typealias Context = Int
+    // この画面は、アイテムIDまたはアイテムそのものをパラメータとして受け取る
+    enum ContextType {
+        case itemID(Int)
+        case item(Item)
+    }
+    typealias Context = ContextType
 }

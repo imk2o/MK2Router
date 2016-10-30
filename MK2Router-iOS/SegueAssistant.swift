@@ -9,32 +9,32 @@
 import UIKit
 
 /// prepareForSegue の代行を行う.
-public class SegueAssistant {
-    public private(set) var segue: UIStoryboardSegue
-    public private(set) var sender: AnyObject?
+open class SegueAssistant {
+    open fileprivate(set) var segue: UIStoryboardSegue
+    open fileprivate(set) var sender: Any?
     
-    public init(segue: UIStoryboardSegue, sender: AnyObject?) {
+    public init(segue: UIStoryboardSegue, sender: Any?) {
         self.segue = segue
         self.sender = sender
     }
     
-    public func prepareIfIdentifierEquals<DestinationVC where DestinationVC: DestinationType, DestinationVC: UIViewController>(
-        identifier: String,
-        @noescape contextForDestination: ((DestinationVC) -> DestinationVC.Context)
-    ) {
+    open func prepareIfIdentifierEquals<DestinationVC>(
+        _ identifier: String,
+        contextForDestination: ((DestinationVC) -> DestinationVC.Context)
+    ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
         if self.segue.identifier != identifier {
             return
         }
         
         let _destinationViewController: UIViewController?
-        if let navigationController = self.segue.destinationViewController as? UINavigationController {
+        if let navigationController = self.segue.destination as? UINavigationController {
             _destinationViewController = navigationController.topViewController
         } else {
-            _destinationViewController = self.segue.destinationViewController
+            _destinationViewController = self.segue.destination
         }
         
         guard let destinationViewController = _destinationViewController as? DestinationVC else {
-            fatalError("Destination view controller is not a type of \(String(DestinationVC)).")
+            fatalError("Destination view controller is not a type of DestinationType.")
         }
         
         let context = contextForDestination(destinationViewController)

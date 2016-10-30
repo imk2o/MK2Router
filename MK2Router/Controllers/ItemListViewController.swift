@@ -23,13 +23,13 @@ class ItemListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.loadItems()
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // SegueAssistantを用いた画面遷移アシスト
         let assistant = SegueAssistant(segue: segue, sender: sender)
 
@@ -38,7 +38,7 @@ class ItemListViewController: UIViewController {
         assistant.prepareIfIdentifierEquals("ShowDetail") { (destination: ItemDetailViewController) -> Int in
             guard
                 let indexPath = self.tableView.indexPathForSelectedRow,
-                let selectedItem = self.items?[indexPath.row]
+                let selectedItem = self.items?[(indexPath as NSIndexPath).row]
             else {
                 fatalError()
             }
@@ -47,13 +47,13 @@ class ItemListViewController: UIViewController {
         }
     }
 
-    @IBAction func showPreferences(sender: UIBarButtonItem) {
-        self.performRoute(.Preferences)
+    @IBAction func showPreferences(_ sender: UIBarButtonItem) {
+        self.performRoute(.preferences)
     }
     
-    private var items: [Item]?
+    fileprivate var items: [Item]?
     
-    private func loadItems() {
+    fileprivate func loadItems() {
         ItemProvider.shared.getAllItems { (items) in
             self.items = items
             self.tableView.reloadData()
@@ -63,24 +63,24 @@ class ItemListViewController: UIViewController {
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension ItemListViewController: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard
             let itemCell = cell as? ItemCell,
-            let item = self.items?[indexPath.row]
+            let item = self.items?[(indexPath as NSIndexPath).row]
         else {
             fatalError()
         }
