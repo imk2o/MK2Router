@@ -30,12 +30,10 @@ open class Router {
         contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
 
-        guard let destinationContentViewController = destinationViewController.contentViewController() as? DestinationVC else {
-            fatalError("Destination view controller is not a type of DestinationType.")
-        }
-        
-        let context = contextForDestination(destinationContentViewController)
-        self.store(context: context, for: destinationContentViewController)
+        ContextStore.shared.store(
+            for: destinationViewController,
+            contextForDestination: contextForDestination
+        )
         
         if
             let sourceNavigationController = sourceViewController.navigationController
@@ -81,52 +79,29 @@ open class Router {
         )
     }
 
-    // MARK: - Manage view controller context
-
-    // 遷移先VCごとのコンテキスト
-    // キーを弱参照にすることで, VCの破棄とともに揮発する
-    fileprivate var destinationToContexts: NSMapTable<UIViewController, ContextHolder> = {
-        return NSMapTable<UIViewController, ContextHolder>.weakToStrongObjects()
-    }()
-    
-    // 構造体やタプルなどの値型に対応するためのホルダクラス
-    fileprivate class ContextHolder {
-        let body: Any
-        
-        init(body: Any) {
-            self.body = body
+    open func instantiateViewController<DestinationVC>(
+        storyboardName: String,
+        storyboardID: String? = nil,
+        contextForDestination: ((DestinationVC) -> DestinationVC.Context)
+    ) -> UIViewController
+    where DestinationVC: DestinationType, DestinationVC: UIViewController {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let viewController: UIViewController?
+        if let storyboardID = storyboardID {
+            viewController = storyboard.instantiateViewController(withIdentifier: storyboardID)
+        } else {
+            viewController = storyboard.instantiateInitialViewController()
         }
-    }
-    
-    /**
-     遷移コンテキストを保存する.
-     
-     - parameter context:                   コンテキスト.
-     - parameter destinationViewController: 遷移先ビューコントローラ.
-     */
-    func store<DestinationVC>(
-        context: DestinationVC.Context,
-        for destinationViewController: DestinationVC
-        ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
-        
-        self.destinationToContexts.setObject(ContextHolder(body: context), forKey: destinationViewController)
-    }
-    
-    /**
-     ビューコントローラに対するコンテキストを求める.
-     
-     - parameter destinationViewController: 遷移先ビューコントローラ.
-     
-     - returns: コンテキストを返す.
-     */
-    func context<DestinationVC>(
-        for destinationViewController: DestinationVC
-        ) -> DestinationVC.Context? where DestinationVC: DestinationType, DestinationVC: UIViewController {
-        guard let contextHolder = self.destinationToContexts.object(forKey: destinationViewController) else {
-            return nil
+        guard let destinationViewController = viewController else {
+            fatalError("Failed to instantiate view controller.")
         }
-
-        return contextHolder.body as? DestinationVC.Context
+        
+        ContextStore.shared.store(
+            for: destinationViewController,
+            contextForDestination: contextForDestination
+        )
+        
+        return destinationViewController
     }
 }
 

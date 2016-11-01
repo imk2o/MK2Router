@@ -15,6 +15,8 @@ class ItemDetailViewController: UIViewController, DestinationType {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailTextView: UITextView!
     
+    var pageIndex: Int = 0		// FIXME
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

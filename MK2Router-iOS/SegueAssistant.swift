@@ -26,18 +26,9 @@ open class SegueAssistant {
             return
         }
         
-        let _destinationViewController: UIViewController?
-        if let navigationController = self.segue.destination as? UINavigationController {
-            _destinationViewController = navigationController.topViewController
-        } else {
-            _destinationViewController = self.segue.destination
-        }
-        
-        guard let destinationViewController = _destinationViewController as? DestinationVC else {
-            fatalError("Destination view controller is not a type of DestinationType.")
-        }
-        
-        let context = contextForDestination(destinationViewController)
-        Router.shared.store(context: context, for: destinationViewController)
+        ContextStore.shared.store(
+            for: self.segue.destination,
+            contextForDestination: contextForDestination
+        )
     }
 }
