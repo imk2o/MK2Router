@@ -34,6 +34,7 @@
 		B19CB5551DC81B670036D0A3 /* ItemPageContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB5531DC816F30036D0A3 /* ItemPageContainerViewController.swift */; };
 		B19CB5571DC8B1230036D0A3 /* ContextStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB5561DC8B1230036D0A3 /* ContextStore.swift */; };
 		B19CB5591DC8B8680036D0A3 /* UIStoryboard+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB5581DC8B8680036D0A3 /* UIStoryboard+Context.swift */; };
+		B19CB55B1DCC02320036D0A3 /* ExtensionProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB55A1DCC02320036D0A3 /* ExtensionProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		B19CB5531DC816F30036D0A3 /* ItemPageContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemPageContainerViewController.swift; path = Controllers/ItemPageContainerViewController.swift; sourceTree = "<group>"; };
 		B19CB5561DC8B1230036D0A3 /* ContextStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextStore.swift; sourceTree = "<group>"; };
 		B19CB5581DC8B8680036D0A3 /* UIStoryboard+Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Context.swift"; sourceTree = "<group>"; };
+		B19CB55A1DCC02320036D0A3 /* ExtensionProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				B1235AF91D618BA300973ED5 /* Info.plist */,
 				B19CB5561DC8B1230036D0A3 /* ContextStore.swift */,
 				B19CB5581DC8B8680036D0A3 /* UIStoryboard+Context.swift */,
+				B19CB55A1DCC02320036D0A3 /* ExtensionProxy.swift */,
 			);
 			path = "MK2Router-iOS";
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				B1235B191D618F5C00973ED5 /* DestinationType.swift in Sources */,
 				B19CB5591DC8B8680036D0A3 /* UIStoryboard+Context.swift in Sources */,
 				B1235B1B1D618F5C00973ED5 /* SegueAssistant.swift in Sources */,
+				B19CB55B1DCC02320036D0A3 /* ExtensionProxy.swift in Sources */,
 				B19CB5571DC8B1230036D0A3 /* ContextStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

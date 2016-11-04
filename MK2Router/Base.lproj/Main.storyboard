@@ -50,7 +50,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FGG-2a-4fb">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="kYr-Xv-eI8"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="kYr-Xv-eI8">
+                            <connections>
+                                <action selector="dismiss:" destination="IAg-dy-LwP" id="nNU-FE-wXA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUK-Ux-WfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -146,7 +150,7 @@
                                 <action selector="showPreferences:" destination="aza-gv-dxC" id="FNd-m5-1L9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Page" id="Ua6-03-xSq">
+                        <barButtonItem key="rightBarButtonItem" title="Page View" id="Ua6-03-xSq">
                             <connections>
                                 <segue destination="BtP-iE-NOa" kind="presentation" id="9ED-4r-EkG"/>
                             </connections>

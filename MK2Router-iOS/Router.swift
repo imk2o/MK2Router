@@ -35,16 +35,7 @@ open class Router {
             contextForDestination: contextForDestination
         )
         
-        if
-            let sourceNavigationController = sourceViewController.navigationController
-            , !(destinationViewController is UINavigationController)
-        {
-            // プッシュ遷移
-            sourceNavigationController.pushViewController(destinationViewController, animated: true)
-        } else {
-            // モーダル遷移
-            sourceViewController.present(destinationViewController, animated: true, completion: nil)
-        }
+        self.perform(sourceViewController, destinationViewController: destinationViewController)
     }
 
     /**
@@ -61,47 +52,30 @@ open class Router {
         storyboardID: String? = nil,
         contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let viewController: UIViewController?
-        if let storyboardID = storyboardID {
-            viewController = storyboard.instantiateViewController(withIdentifier: storyboardID)
-        } else {
-            viewController = storyboard.instantiateInitialViewController()
-        }
-        guard let destinationViewController = viewController else {
-            return
-        }
-        
-        return self.perform(
-            sourceViewController,
-            destinationViewController: destinationViewController,
-            contextForDestination: contextForDestination
+        let destinationViewController = UIStoryboard(name: storyboardName, bundle: nil)
+            .mk2
+            .instantiateViewController(
+                withIdentifier: storyboardID,
+                contextForDestination: contextForDestination
         )
+        
+        return self.perform(sourceViewController, destinationViewController: destinationViewController)
     }
-
-    open func instantiateViewController<DestinationVC>(
-        storyboardName: String,
-        storyboardID: String? = nil,
-        contextForDestination: ((DestinationVC) -> DestinationVC.Context)
-    ) -> UIViewController
-    where DestinationVC: DestinationType, DestinationVC: UIViewController {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let viewController: UIViewController?
-        if let storyboardID = storyboardID {
-            viewController = storyboard.instantiateViewController(withIdentifier: storyboardID)
+    
+    func perform(
+        _ sourceViewController: UIViewController,
+        destinationViewController: UIViewController
+    ) {
+        if
+            let sourceNavigationController = sourceViewController.navigationController
+            , !(destinationViewController is UINavigationController)
+        {
+            // プッシュ遷移
+            sourceNavigationController.pushViewController(destinationViewController, animated: true)
         } else {
-            viewController = storyboard.instantiateInitialViewController()
+            // モーダル遷移
+            sourceViewController.present(destinationViewController, animated: true, completion: nil)
         }
-        guard let destinationViewController = viewController else {
-            fatalError("Failed to instantiate view controller.")
-        }
-        
-        ContextStore.shared.store(
-            for: destinationViewController,
-            contextForDestination: contextForDestination
-        )
-        
-        return destinationViewController
     }
 }
 

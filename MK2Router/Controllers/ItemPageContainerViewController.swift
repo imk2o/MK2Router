@@ -9,21 +9,13 @@
 import UIKit
 import MK2Router
 
-// NOTE:
-// Storyboardが以下のように構成されているものとする
-// * PageContainerViewControllerのContainer ViewにUIPageViewControllerが実装され、pageViewControllerセグエで結ばれている
-// * PageContainerViewControllerにPageViewDataSourceオブジェクトが実装され、pageViewDataSourceとしてアウトレットされている
 class ItemPageContainerViewController: UIViewController {
-    fileprivate var pageViewDataSource: PageViewDataSource!
+    fileprivate var pageViewDataSource: ItemPageViewDataSource!
     fileprivate var pageViewController: UIPageViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.pageViewDataSource = PageViewDataSource()
-        self.pageViewController.dataSource = self.pageViewDataSource
-        self.pageViewController.delegate = self
-        
+
         // NOTE: Under Top BarsがONのとき、最初のページ表示直後に適用されない問題があるため
         DispatchQueue.main.async {
             let firstViewController = self.pageViewDataSource.firstViewController()
@@ -36,6 +28,12 @@ class ItemPageContainerViewController: UIViewController {
             UIBarButtonItem(title: ">>", style: .plain, target: self, action: #selector(toLastPage)),
             UIBarButtonItem(title: "<<", style: .plain, target: self, action: #selector(toFirstPage))
         ]
+        
+        ItemProvider.shared.getAllItemIDs { (itemIDs) in
+            self.pageViewDataSource = ItemPageViewDataSource(itemIDs: itemIDs)
+            self.pageViewController.dataSource = self.pageViewDataSource
+            self.pageViewController.delegate = self
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,6 +51,10 @@ class ItemPageContainerViewController: UIViewController {
         }
     }
     
+    @IBAction func dismiss(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func toFirstPage(sender: AnyObject) {
         let firstViewController = self.pageViewDataSource.firstViewController()
         self.pageViewController.setViewControllers([firstViewController], direction: .reverse, animated: true, completion: nil)
@@ -65,22 +67,26 @@ class ItemPageContainerViewController: UIViewController {
 }
 
 extension ItemPageContainerViewController: UIPageViewControllerDelegate {
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         // NOTE: self.viewControllers?.firstが現在のページに対応するVC
         self.navigationItem.title = self.pageViewController.viewControllers?.first?.title
     }
 }
 
-class PageViewDataSource: NSObject, UIPageViewControllerDataSource {
-    let numberOfPages: Int = 10
+class ItemPageViewDataSource: NSObject, UIPageViewControllerDataSource {
+    let itemIDs: [Int]
+
+    init(itemIDs: [Int]) {
+        self.itemIDs = itemIDs
+    }
     
     func firstViewController() -> UIViewController {
         return self.viewController(at: 0)
     }
     
     func lastViewController() -> UIViewController {
-        return self.viewController(at: self.numberOfPages - 1)
+        return self.viewController(at: self.itemIDs.count - 1)
     }
     
     func pageViewController(
@@ -99,7 +105,7 @@ class PageViewDataSource: NSObject, UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let index = self.indexOf(viewController)
-        if index == self.numberOfPages - 1 {
+        if index == self.itemIDs.count - 1 {
             return nil
             // Infinite loop
             //return self.viewController(at: 0)
@@ -109,25 +115,9 @@ class PageViewDataSource: NSObject, UIPageViewControllerDataSource {
     }
     
     private func viewController(at index: Int) -> UIViewController {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ItemDetailView") as? ItemDetailViewController else {
-//            fatalError()
-//        }
-//        viewController.pageIndex = index
-//        
-//        Router.shared.store(context: index + 1, for: viewController)
-
-//        let viewController = Router.shared.instantiateViewController(
-//            storyboardName: "Main",
-//            storyboardID: "ItemDetailView"
-//        ) { (destination: ItemDetailViewController) in
-//            destination.pageIndex = index		// FIXME
-//            return index + 1
-//        }
-
-        return UIStoryboard(name: "Main", bundle: nil)
+        return UIStoryboard(name: "Main", bundle: nil).mk2
             .instantiateViewController(withIdentifier: "ItemDetailView") { (destination: ItemDetailViewController) in
-                destination.pageIndex = index		// FIXME
+                destination.pageIndex = index
                 return index + 1
         }
     }
@@ -140,25 +130,3 @@ class PageViewDataSource: NSObject, UIPageViewControllerDataSource {
         return viewController.pageIndex
     }
 }
-
-//class ContentViewController: UIViewController {
-//    var pageIndex: Int!
-//
-//    private var pageNumber: Int {
-//        return self.pageIndex + 1
-//    }
-//
-//    @IBOutlet weak var label: UILabel!
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        let title = "Page\(self.pageNumber)"
-//        self.title = title
-//        self.label.text = title
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//}

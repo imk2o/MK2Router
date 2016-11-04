@@ -26,6 +26,13 @@ class ItemProvider {
         handler(items)
     }
 
+    func getAllItemIDs(_ handler: ([Int]) -> Void) {
+        self.getAllItems { (items) in
+            let itemIDs = items.map { $0.ID }
+            handler(itemIDs)
+        }
+    }
+    
     func getItemDetail(_ ID: Int, handler: (Item) -> Void) {
         let item = self.itemForID(ID, imageQuarity: "large")
         
