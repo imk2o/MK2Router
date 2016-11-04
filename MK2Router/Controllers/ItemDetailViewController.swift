@@ -14,6 +14,9 @@ class ItemDetailViewController: UIViewController, DestinationType {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailTextView: UITextView!
+
+    // PageViewControllerで使用
+    var pageIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
