@@ -31,6 +31,13 @@
 		B147C89A1CE8562A000E74D2 /* Router+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C8991CE8562A000E74D2 /* Router+Extension.swift */; };
 		B147C89C1CE85C3C000E74D2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C89B1CE85C3C000E74D2 /* Message.swift */; };
 		B147C89E1CE85C4A000E74D2 /* MessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147C89D1CE85C4A000E74D2 /* MessageProvider.swift */; };
+		B17259A61DE7B44E003BE7CA /* SearchOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17259A51DE7B44E003BE7CA /* SearchOptionViewController.swift */; };
+		B17259A81DE7B641003BE7CA /* FeedbackType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17259A71DE7B641003BE7CA /* FeedbackType.swift */; };
+		B17259AA1DE7B6B4003BE7CA /* FeedbackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17259A91DE7B6B4003BE7CA /* FeedbackStore.swift */; };
+		B17A56EE1DEA7B6600ED8F6A /* UIStoryboardSegue+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A56ED1DEA7B6600ED8F6A /* UIStoryboardSegue+Feedback.swift */; };
+		B17A56F01DEA80D600ED8F6A /* UIStoryboardSegue+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17A56EF1DEA80D600ED8F6A /* UIStoryboardSegue+Context.swift */; };
+		B17A56F31DEA880400ED8F6A /* MK2Router.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B17A56F11DEA880400ED8F6A /* MK2Router.podspec */; };
+		B17A56F41DEA880400ED8F6A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B17A56F21DEA880400ED8F6A /* README.md */; };
 		B19CB5551DC81B670036D0A3 /* ItemPageContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB5531DC816F30036D0A3 /* ItemPageContainerViewController.swift */; };
 		B19CB5571DC8B1230036D0A3 /* ContextStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB5561DC8B1230036D0A3 /* ContextStore.swift */; };
 		B19CB5591DC8B8680036D0A3 /* UIStoryboard+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CB5581DC8B8680036D0A3 /* UIStoryboard+Context.swift */; };
@@ -106,6 +113,13 @@
 		B147C8991CE8562A000E74D2 /* Router+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Router+Extension.swift"; path = "Extensions/Router+Extension.swift"; sourceTree = "<group>"; };
 		B147C89B1CE85C3C000E74D2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
 		B147C89D1CE85C4A000E74D2 /* MessageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageProvider.swift; path = Models/MessageProvider.swift; sourceTree = "<group>"; };
+		B17259A51DE7B44E003BE7CA /* SearchOptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchOptionViewController.swift; path = Controllers/SearchOptionViewController.swift; sourceTree = "<group>"; };
+		B17259A71DE7B641003BE7CA /* FeedbackType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackType.swift; sourceTree = "<group>"; };
+		B17259A91DE7B6B4003BE7CA /* FeedbackStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackStore.swift; sourceTree = "<group>"; };
+		B17A56ED1DEA7B6600ED8F6A /* UIStoryboardSegue+Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboardSegue+Feedback.swift"; sourceTree = "<group>"; };
+		B17A56EF1DEA80D600ED8F6A /* UIStoryboardSegue+Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboardSegue+Context.swift"; sourceTree = "<group>"; };
+		B17A56F11DEA880400ED8F6A /* MK2Router.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MK2Router.podspec; sourceTree = "<group>"; };
+		B17A56F21DEA880400ED8F6A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B19CB5531DC816F30036D0A3 /* ItemPageContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemPageContainerViewController.swift; path = Controllers/ItemPageContainerViewController.swift; sourceTree = "<group>"; };
 		B19CB5561DC8B1230036D0A3 /* ContextStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextStore.swift; sourceTree = "<group>"; };
 		B19CB5581DC8B8680036D0A3 /* UIStoryboard+Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Context.swift"; sourceTree = "<group>"; };
@@ -156,6 +170,10 @@
 				B19CB5561DC8B1230036D0A3 /* ContextStore.swift */,
 				B19CB5581DC8B8680036D0A3 /* UIStoryboard+Context.swift */,
 				B19CB55A1DCC02320036D0A3 /* ExtensionProxy.swift */,
+				B17259A71DE7B641003BE7CA /* FeedbackType.swift */,
+				B17259A91DE7B6B4003BE7CA /* FeedbackStore.swift */,
+				B17A56ED1DEA7B6600ED8F6A /* UIStoryboardSegue+Feedback.swift */,
+				B17A56EF1DEA80D600ED8F6A /* UIStoryboardSegue+Context.swift */,
 			);
 			path = "MK2Router-iOS";
 			sourceTree = "<group>";
@@ -168,6 +186,8 @@
 				B147C8631CE49C11000E74D2 /* MK2RouterTests */,
 				B147C86E1CE49C11000E74D2 /* MK2RouterUITests */,
 				B147C84D1CE49C11000E74D2 /* Products */,
+				B17A56F11DEA880400ED8F6A /* MK2Router.podspec */,
+				B17A56F21DEA880400ED8F6A /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,6 +255,7 @@
 				B147C8961CE853F4000E74D2 /* ContactFormViewController.swift */,
 				B13517A71D7BDA5100CC513D /* PreferencesViewController.swift */,
 				B19CB5531DC816F30036D0A3 /* ItemPageContainerViewController.swift */,
+				B17259A51DE7B44E003BE7CA /* SearchOptionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -361,6 +382,7 @@
 					};
 					B147C84B1CE49C11000E74D2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 427QQ329ZX;
 						LastSwiftMigration = 0800;
 					};
 					B147C85F1CE49C11000E74D2 = {
@@ -401,6 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17A56F31DEA880400ED8F6A /* MK2Router.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,11 +460,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17259AA1DE7B6B4003BE7CA /* FeedbackStore.swift in Sources */,
+				B17A56EE1DEA7B6600ED8F6A /* UIStoryboardSegue+Feedback.swift in Sources */,
 				B1235B1A1D618F5C00973ED5 /* Router.swift in Sources */,
 				B1235B191D618F5C00973ED5 /* DestinationType.swift in Sources */,
+				B17A56F01DEA80D600ED8F6A /* UIStoryboardSegue+Context.swift in Sources */,
 				B19CB5591DC8B8680036D0A3 /* UIStoryboard+Context.swift in Sources */,
+				B17259A81DE7B641003BE7CA /* FeedbackType.swift in Sources */,
 				B1235B1B1D618F5C00973ED5 /* SegueAssistant.swift in Sources */,
 				B19CB55B1DCC02320036D0A3 /* ExtensionProxy.swift in Sources */,
+				B17A56F41DEA880400ED8F6A /* README.md in Sources */,
 				B19CB5571DC8B1230036D0A3 /* ContextStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +490,7 @@
 				B147C89C1CE85C3C000E74D2 /* Message.swift in Sources */,
 				B19CB5551DC81B670036D0A3 /* ItemPageContainerViewController.swift in Sources */,
 				B13517A81D7BDA5100CC513D /* PreferencesViewController.swift in Sources */,
+				B17259A61DE7B44E003BE7CA /* SearchOptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,8 +570,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -566,6 +597,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -671,6 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 427QQ329ZX;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MK2Router/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -685,6 +718,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 427QQ329ZX;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MK2Router/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

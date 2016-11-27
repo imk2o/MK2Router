@@ -15,7 +15,7 @@ class ItemListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.loadItems()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,24 +25,19 @@ class ItemListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        self.loadItems()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // SegueAssistantを用いた画面遷移アシスト
-        let assistant = SegueAssistant(segue: segue, sender: sender)
-
         // segue.identifierが"ShowDetail"の場合、
         // 遷移先のItemDetailViewControllerにInt型のパラメータを渡す
-        assistant.prepareIfIdentifierEquals("ShowDetail") { (destination: ItemDetailViewController) -> Int in
+        segue.mk2.context(ifIdentifierEquals: "ShowDetail") { (destination: ItemDetailViewController) in
             guard
                 let indexPath = self.tableView.indexPathForSelectedRow,
                 let selectedItem = self.items?[(indexPath as NSIndexPath).row]
-            else {
-                fatalError()
+                else {
+                    fatalError()
             }
-        
+            
             return selectedItem.ID
         }
     }
@@ -51,10 +46,17 @@ class ItemListViewController: UIViewController {
         self.performRoute(.preferences)
     }
     
+    @IBAction func unwindFromSearchOption(_ segue: UIStoryboardSegue) {
+        // SeachOptionViewControllerからのフィードバックを取得し、再検索する
+        if let keyword = segue.mk2.feedback(from: SearchOptionViewController.self) {
+            self.loadItems(keyword: keyword)
+        }
+    }
+    
     fileprivate var items: [Item]?
     
-    fileprivate func loadItems() {
-        ItemProvider.shared.getAllItems { (items) in
+    fileprivate func loadItems(keyword: String = "") {
+        ItemProvider.shared.getItems(keyword: keyword) { (items) in
             self.items = items
             self.tableView.reloadData()
         }

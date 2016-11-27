@@ -8,12 +8,13 @@
 
 import UIKit
 
-/// prepareForSegue の代行を行う.
+// TODO: deprecated
+// UIStoryboardSegue+Contextに移行します
 open class SegueAssistant {
     open fileprivate(set) var segue: UIStoryboardSegue
     open fileprivate(set) var sender: Any?
     
-    public init(segue: UIStoryboardSegue, sender: Any?) {
+    public init(segue: UIStoryboardSegue, sender: Any? = nil) {
         self.segue = segue
         self.sender = sender
     }
