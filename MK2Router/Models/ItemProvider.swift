@@ -26,6 +26,20 @@ class ItemProvider {
         handler(items)
     }
 
+    func getItems(keyword: String, handler: ([Item]) -> Void) {
+        self.getAllItems { (items) in
+            if keyword.isEmpty {
+                handler(items)
+            } else {
+                let matchItems = items.filter({ (item) -> Bool in
+                    return item.title.contains(keyword) || item.detail.contains(keyword)
+                })
+                
+                handler(matchItems)
+            }
+        }
+    }
+    
     func getAllItemIDs(_ handler: ([Int]) -> Void) {
         self.getAllItems { (items) in
             let itemIDs = items.map { $0.ID }

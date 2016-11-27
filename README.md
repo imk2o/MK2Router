@@ -17,7 +17,7 @@ See also: Qiita(Japanese) http://qiita.com/imk2o/items/8a46cfeaede7cbba4dcb
 Add the following line to your `Cartfile`.
 
 ```
-github 'imk2o/MK2Router' ~> 2.0.0
+github 'imk2o/MK2Router' ~> 2.2.0
 ```
 
 Run `carthage update` to build the framework and drag the built `MK2Router.framework` into your Xcode project.
@@ -27,7 +27,7 @@ Run `carthage update` to build the framework and drag the built `MK2Router.frame
 Add the following line to your `Podfile`.
 
 ```
-pod 'MK2Router', '~> 2.0.0'
+pod 'MK2Router', '~> 2.2.0'
 ```
 
 Run `pod install` and open your Xcode workspace.
@@ -59,13 +59,11 @@ override func viewDidLoad() {
 
 ### Routing with segue
 
-The `SegueAssistant` class provides passing parameters between view controllers.
+The `UIStoryboardSegue` extension provides passing parameters between view controllers.
 
 ```
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    let assistant = SegueAssistant(segue: segue, sender: sender)
-
-    assistant.prepareIfIdentifierEquals("ShowDetail") { (destination: ItemDetailViewController) in
+    segue.mk2.context(ifIdentifierEquals: "ShowDetail") { (destination: ItemDetailViewController) in
         guard
             let indexPath = self.tableView.indexPathForSelectedRow,
             let selectedItem = self.items?[indexPath.row]
@@ -106,6 +104,30 @@ class ItemDetailViewController: UIViewController, DestinationType {
     typealias Context = ContextType
 
     ...
+```
+
+### Feedback with unwind segue
+
+If you want to feedback values to source view controller using unwind segue, do as follows.
+
+* Store the feedback values when unwind (in destination view controller)
+
+```
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    segue.mk2.feedback(ifIdentifierEquals: "Unwind") { (source: SearchOptionViewController) in
+        return self.keywordTextField.text ?? ""
+    }
+}
+```
+
+* Get the feedback values (in source view controller)
+
+```
+@IBAction func unwindFromSearchOption(_ segue: UIStoryboardSegue) {
+    if let keyword = segue.mk2.feedback(from: SearchOptionViewController.self) {
+        self.loadItems(keyword: keyword)
+    }
+}
 ```
 
 ## License
