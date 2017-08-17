@@ -10,6 +10,12 @@ import UIKit
 
 /// ルータ.
 open class Router {
+    public enum PerformBehavior {
+        case automatic
+        case push
+        case modal
+    }
+    
     open static let shared: Router = Router()
     
     fileprivate init() {
@@ -17,16 +23,16 @@ open class Router {
 
     /**
      画面遷移を行う.
-     遷移元のビューコントローラがNavigation Controller配下にあり、遷移先がNavigation Controllerでなければ
-     プッシュ遷移、それ以外の場合はモーダル遷移を行う.
      
      - parameter sourceViewController:      遷移元ビューコントローラ.
      - parameter destinationViewController: 遷移先ビューコントローラ.
+     - parameter behavior:                  遷移方法(pushまたはmodal).
      - parameter contextForDestination:     遷移先へ渡すコンテキストを求めるブロック.
      */
     open func perform<DestinationVC>(
         _ sourceViewController: UIViewController,
         destinationViewController: UIViewController,
+        behavior: PerformBehavior = .automatic,
         contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
 
@@ -35,7 +41,7 @@ open class Router {
             contextForDestination: contextForDestination
         )
         
-        self.perform(sourceViewController, destinationViewController: destinationViewController)
+        self.perform(sourceViewController, destinationViewController: destinationViewController, behavior: behavior)
     }
 
     /**
@@ -44,12 +50,14 @@ open class Router {
      - parameter sourceViewController:  遷移元ビューコントローラ.
      - parameter storyboardName:        遷移先ストーリーボード名.
      - parameter storyboardID:          遷移先ストーリーボードID. nilの場合はInitial View Controllerが遷移先となる.
+     - parameter behavior:                  遷移方法(pushまたはmodal).
      - parameter contextForDestination: 遷移先へ渡すコンテキストを求めるブロック.
      */
     open func perform<DestinationVC>(
         _ sourceViewController: UIViewController,
         storyboardName: String,
         storyboardID: String? = nil,
+        behavior: PerformBehavior = .automatic,
         contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) where DestinationVC: DestinationType, DestinationVC: UIViewController {
         let destinationViewController = UIStoryboard(name: storyboardName, bundle: nil)
@@ -59,22 +67,42 @@ open class Router {
                 contextForDestination: contextForDestination
         )
         
-        return self.perform(sourceViewController, destinationViewController: destinationViewController)
+        return self.perform(sourceViewController, destinationViewController: destinationViewController, behavior: behavior)
     }
     
     func perform(
         _ sourceViewController: UIViewController,
-        destinationViewController: UIViewController
+        destinationViewController: UIViewController,
+        behavior: PerformBehavior = .automatic
     ) {
-        if
-            let sourceNavigationController = sourceViewController.navigationController
-            , !(destinationViewController is UINavigationController)
-        {
-            // プッシュ遷移
+        func performPush(_ sourceNavigationController: UINavigationController) {
             sourceNavigationController.pushViewController(destinationViewController, animated: true)
-        } else {
-            // モーダル遷移
+        }
+        func performModal() {
             sourceViewController.present(destinationViewController, animated: true, completion: nil)
+        }
+
+        switch behavior {
+        case .automatic:
+            if
+                let sourceNavigationController = sourceViewController.navigationController
+                , !(destinationViewController is UINavigationController)
+            {
+                performPush(sourceNavigationController)
+            } else {
+                performModal()
+            }
+        case .push:
+            guard
+                let sourceNavigationController = sourceViewController.navigationController,
+                !(destinationViewController is UINavigationController)
+            else {
+                fatalError("Source view controller is not a child of navigation controller.")
+            }
+            
+            performPush(sourceNavigationController)
+        case .modal:
+            performModal()
         }
     }
 }
