@@ -9,7 +9,7 @@
 import UIKit
 
 public extension MK2 where Base: UIStoryboardSegue {
-    public func feedback<SourceVC: UIViewController>(
+    func feedback<SourceVC: UIViewController>(
         ifIdentifierEquals identifier: String,
         feedbackForSource: ((SourceVC) -> SourceVC.Feedback)
     )
@@ -25,7 +25,7 @@ public extension MK2 where Base: UIStoryboardSegue {
         )
     }
     
-    public func feedback<SourceVC: UIViewController>(from _: SourceVC.Type) -> SourceVC.Feedback?
+    func feedback<SourceVC: UIViewController>(from _: SourceVC.Type) -> SourceVC.Feedback?
         where SourceVC: FeedbackType
     {
         guard let feedbackSourceViewController = self.base.source as? SourceVC else {

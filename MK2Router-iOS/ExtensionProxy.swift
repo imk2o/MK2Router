@@ -13,7 +13,7 @@ public struct MK2<Base: AnyObject> {
 }
 
 public extension NSObjectProtocol {
-    public var mk2: MK2<Self> {
+    var mk2: MK2<Self> {
         return MK2(base: self)
     }
 }

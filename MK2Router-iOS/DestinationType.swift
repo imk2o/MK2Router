@@ -16,7 +16,7 @@ public protocol DestinationType: class
 }
 
 public extension DestinationType where Self: UIViewController {
-    public var context: Context! {
+    var context: Context! {
         return ContextStore.shared.context(for: self)
     }
 }

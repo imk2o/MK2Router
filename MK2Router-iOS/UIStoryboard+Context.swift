@@ -16,7 +16,7 @@ public extension MK2 where Base: UIStoryboard {
     /// - parameter contextForDestination: ビューコントローラへ綿足すコンテキストを求めるブロック
     ///
     /// - returns: ビューコントローラを返す。
-    public func instantiateViewController<DestinationVC>(
+    func instantiateViewController<DestinationVC>(
         withIdentifier identifier: String? = nil,
         contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     ) -> UIViewController where DestinationVC: DestinationType, DestinationVC: UIViewController {
