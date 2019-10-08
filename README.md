@@ -12,22 +12,12 @@ See also: Qiita(Japanese) http://qiita.com/imk2o/items/8a46cfeaede7cbba4dcb
 
 ## Install
 
-### Carthage
-
-Add the following line to your `Cartfile`.
-
-```
-github 'imk2o/MK2Router' ~> 2.2.0
-```
-
-Run `carthage update` to build the framework and drag the built `MK2Router.framework` into your Xcode project.
-
 ### CocoaPods
 
 Add the following line to your `Podfile`.
 
 ```
-pod 'MK2Router', '~> 2.2.0'
+pod 'MK2Router', '~> 2.4.0'
 ```
 
 Run `pod install` and open your Xcode workspace.
