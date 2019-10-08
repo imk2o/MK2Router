@@ -9,7 +9,7 @@
 import UIKit
 
 public extension MK2 where Base: UIStoryboardSegue {
-    public func context<DestinationVC: UIViewController>(
+    func context<DestinationVC: UIViewController>(
         ifIdentifierEquals identifier: String,
         contextForDestination: ((DestinationVC) -> DestinationVC.Context)
     )

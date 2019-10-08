@@ -25,8 +25,8 @@ class ItemPageContainerViewController: UIViewController {
         }
         
         self.navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(title: ">>", style: .plain, target: self, action: #selector(toLastPage)),
-            UIBarButtonItem(title: "<<", style: .plain, target: self, action: #selector(toFirstPage))
+            UIBarButtonItem(title: ">>", style: .plain, target: self, action: #selector(self.toLastPage(_:))),
+            UIBarButtonItem(title: "<<", style: .plain, target: self, action: #selector(self.toFirstPage(_:)))
         ]
         
         ItemProvider.shared.getAllItemIDs { (itemIDs) in
@@ -55,12 +55,12 @@ class ItemPageContainerViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func toFirstPage(sender: AnyObject) {
+    @objc func toFirstPage(_ sender: Any) {
         let firstViewController = self.pageViewDataSource.firstViewController()
         self.pageViewController.setViewControllers([firstViewController], direction: .reverse, animated: true, completion: nil)
     }
     
-    func toLastPage(sender: AnyObject) {
+    @objc func toLastPage(_ sender: Any) {
         let lastViewController = self.pageViewDataSource.lastViewController()
         self.pageViewController.setViewControllers([lastViewController], direction: .forward, animated: true, completion: nil)
     }

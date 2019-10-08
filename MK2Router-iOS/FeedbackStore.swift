@@ -9,7 +9,7 @@
 import UIKit
 
 open class FeedbackStore {
-    open static let shared = FeedbackStore()
+    public static let shared = FeedbackStore()
     
     // 帰還元VCごとのコンテキスト
     // キーを弱参照にすることで, VCの破棄とともに揮発する

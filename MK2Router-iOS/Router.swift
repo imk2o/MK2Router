@@ -16,7 +16,7 @@ open class Router {
         case modal
     }
     
-    open static let shared: Router = Router()
+    public static let shared: Router = Router()
     
     fileprivate init() {
     }

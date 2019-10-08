@@ -9,7 +9,7 @@
 import UIKit
 
 open class ContextStore {
-    open static let shared = ContextStore()
+    public static let shared = ContextStore()
     
     // 遷移先VCごとのコンテキスト
     // キーを弱参照にすることで, VCの破棄とともに揮発する
